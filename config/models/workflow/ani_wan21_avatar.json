@@ -1,0 +1,92 @@
+{
+  "type": "workflow",
+  "class_name": "AniWan21Avatar",
+  "name": "AniWan21 数字人（图+音频→说话视频）",
+  "description": "AniWan21 是数字人模型。输入一张人物图片和一段音频，生成该人物自然说话的视频，口型同步准确，动作自然流畅。支持自定义分辨率和帧率。适合虚拟主播、AI 播报员、数字人客服等需要口型同步的数字人场景。需要图片和音频两个输入。",
+  "ui_group": "数字人",
+  "cover_image": "assets/workflow_covers/rh_wf/wan21animate_fluid_avatar.png",
+  "source_type": "runninghub",
+  "instance_type": "plus",
+  "source_data": {
+    "domestic": "1993501240730599426",
+    "overseas": "2082012496138870785"
+  },
+  "input_mapping": {
+    "ref_image": {
+      "node_id": "284",
+      "field": "image"
+    },
+    "audio": {
+      "node_id": "125",
+      "field": "audio"
+    },
+    "positive": {
+      "node_id": "314",
+      "field": "prompt"
+    },
+    "width": {
+      "node_id": "312",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "327",
+      "field": "value"
+    },
+    "fps": {
+      "node_id": "319",
+      "field": "value"
+    }
+  },
+  "category": "digital_human",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_image",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 24,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "audio",
+      "label": "音频",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

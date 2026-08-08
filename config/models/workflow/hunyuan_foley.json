@@ -1,0 +1,29 @@
+{
+  "type": "workflow",
+  "class_name": "HunyuanFoley",
+  "name": "混元Foley 视频自动配音效",
+  "description": "基于腾讯混元 AI 的 Foley 自动拟音模型。输入一段无声或音效不足的视频，模型自动分析画面内容，为视频中的动作、场景、物体交互生成匹配的音效（如脚步声、风声、物体碰撞声等），大幅提升视频的沉浸感和完成度。适合短视频配音效、宣传片音效补充、影视后期拟音等场景。无需手动指定音效类型，全自动智能匹配。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/hunyuan_foley.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2054739137890144258",
+    "overseas": "2082039738063982593"
+  },
+  "input_mapping": {
+    "video": {
+      "node_id": "10",
+      "field": "file"
+    }
+  },
+  "category": "v2v",
+  "ui_schema": [
+    {
+      "name": "video",
+      "label": "输入视频",
+      "widget_type": "video_upload",
+      "required": true
+    }
+  ]
+}

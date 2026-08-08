@@ -1,0 +1,94 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3VideoImageRefV2V",
+  "name": "MiniMax-H3 视频参考+图片参考多模态生视频",
+  "description": "MiniMax-H3 多模态生视频模型，同时基于一段参考视频和一张参考图片生成新视频。可替换参考视频中的人物为参考图片中的人物身份，同时保持原视频的动作轨迹、音频卡点同步，并通过提示词重塑场景与光影，实现人物替换+场景重置的组合效果。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例，对应分辨率分别为 640×640、576×768、768×576、480×832、832×480。可自定义视频时长（秒），输出视频自带环境音效。适合视频人物替换+场景迁移、角色换脸+风格转换等高级场景。\n\n【提示词写法】先说明替换视频参考1中人物为图片参考1的人物，保持动作与音频卡点同步，再描述场景重塑。提示词中用「视频1」「图片1」引用对应资源。示例：替换视频1中的人物，完美保持图片1中女性的面部身份特征。高度复刻视频1中的舞蹈动作与音频卡点同步。将背景替换为海边落日场景。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_video_image_ref_v2v.png",
+  "source_type": "runninghub",
+  "instance_type": "ultra",
+  "source_data": {
+    "domestic": "2084656712409239554",
+    "overseas": "2084621885723230210"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "19",
+      "field": "text"
+    },
+    "seconds": {
+      "node_id": "13",
+      "field": "value"
+    },
+    "width": {
+      "node_id": "14",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "15",
+      "field": "value"
+    },
+    "ref_video": {
+      "node_id": "4",
+      "field": "file"
+    },
+    "ref_image": {
+      "node_id": "20",
+      "field": "image"
+    }
+  },
+  "category": "v2v",
+  "input_transform": "minimax_h3_ratio",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "替换视频参考1人物为图片参考1，保持动作与音频同步。例如：替换视频1中人物为图片1的人物，保持舞蹈动作与音频卡点，将背景替换为新场景..."
+    },
+    {
+      "name": "ref_video",
+      "label": "视频参考1",
+      "widget_type": "video_upload",
+      "required": true
+    },
+    {
+      "name": "ref_image",
+      "label": "图片参考1",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 5,
+      "options": [
+        "1:1 (640×640)",
+        "3:4 (576×768)",
+        "4:3 (768×576)",
+        "9:16 (480×832)",
+        "16:9 (832×480)"
+      ],
+      "option_values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 15,
+      "step": 1
+    }
+  ]
+}

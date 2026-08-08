@@ -1,0 +1,58 @@
+{
+  "type": "workflow",
+  "class_name": "Flux2Klein",
+  "name": "Flux2Klein 文生图",
+  "description": "Flux2Klein 是基于 FLUX 架构的通用文生图模型。画面细节丰富，对复杂提示词的还原度高，支持 64-8192px 灵活分辨率（默认 1024×1024），写实和艺术风格均可生成。适合需要高质量、高细节的图片生成场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/flux2_klein_9b_t2i.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2012159064800763905",
+    "overseas": "2082366868393263106"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "68",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "110",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "111",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

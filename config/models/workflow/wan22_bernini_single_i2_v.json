@@ -1,0 +1,96 @@
+{
+  "type": "workflow",
+  "class_name": "Wan22BerniniSingleI2V",
+  "name": "Wan2.2-Bernini 参考图生视频（单图·非首帧）",
+  "description": "基于 Wan2.2 架构增强的图生视频模型，单张参考图即可生成带音效的视频。内置付费 LLM 自动将简短描述扩展为高质量提示词，提升画面细节和运动表现。参考图用于提取角色/场景特征，非严格首帧图，可通过提示词灵活控制画面内容。生成效果自然流畅，适合从角色设计图生成动态展示、产品动效、氛围短片等场景。【建议】总帧数上限约 81 帧，推荐 5 秒 @ 16fps（80 帧），推荐 480P (854×480)，最高 720P (1280×720)。【参考图要求】所有参考图尺寸必须相同。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/wan22_bernini_sigle.png",
+  "source_type": "runninghub",
+  "instance_type": "plus",
+  "source_data": {
+    "domestic": "2069963218600161282",
+    "overseas": "2082284983780605954"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "53",
+      "field": "text"
+    },
+    "ref1": {
+      "node_id": "11",
+      "field": "image"
+    },
+    "width": {
+      "node_id": "19",
+      "field": "Value"
+    },
+    "height": {
+      "node_id": "20",
+      "field": "Value"
+    },
+    "fps": {
+      "node_id": "14",
+      "field": "Value"
+    },
+    "duration": {
+      "node_id": "25",
+      "field": "Value"
+    }
+  },
+  "category": "i2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入画面描述，模型会自动扩展为高质量提示词..."
+    },
+    {
+      "name": "ref1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 854,
+      "min_value": 64,
+      "max_value": 1280,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 480,
+      "min_value": 64,
+      "max_value": 720,
+      "step": 1
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 16,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "duration",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    }
+  ]
+}

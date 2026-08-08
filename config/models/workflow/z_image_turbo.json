@@ -1,0 +1,58 @@
+{
+  "type": "workflow",
+  "class_name": "ZImageTurbo",
+  "name": "Z-Image-Turbo 文生图（极速）",
+  "description": "Z-Image-Turbo 是极速文生图模型。基于 FLUX 架构优化，生成速度极快，适合快速迭代和批量出图场景。画面质量均衡，对提示词跟随度较好，支持 64-8192px 的灵活分辨率，默认 1024×1024。优势：中文文字支持好，速度快，适合对画质要求不极端的日常生成任务。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/z_image_turbo.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2021205123837468673",
+    "overseas": "2082134950190874625"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "34",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "50",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "52",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

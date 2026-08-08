@@ -1,0 +1,91 @@
+{
+  "type": "paid_api",
+  "class_name": "SunoLyrics",
+  "name": "suno-歌词生成",
+  "description": "模型价格\n【海外版】$0.002/次\n\nSuno 歌词生成模型。输入一句话描述想要的歌词主题，模型自动生成符合歌曲结构的纯文本歌词\n（包含 Verse、Chorus、Bridge 等段落标签）、歌名以及风格标签。\n适用于歌词草稿快速生成、创作灵感激发等场景。配合自定义音乐创作模式可快速进行二次创作生成音频。\n\n## 参数说明\n\n1. prompt（歌词主题）：1~500个字符，用一句话描述想要的歌词主题/情绪/风格\n   示例：描述个人面对成长后的平静，励志，娓娓道来的感觉\n\n## 输出说明\n\n模型返回结构化歌词文本，包含 [Verse]、[Chorus]、[Bridge]、[Pre-Chorus] 等段落标签，\n输出可直接粘贴到 Suno V5.5 自定义音乐创作等模型的歌词参数中使用。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/suno_lyrics.png",
+  "category": "lyrics_gen",
+  "api_endpoint": "/openapi/v2/rhart-audio/suno/lyrics",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": "描述个人面对成长后的平静，励志，娓娓道来的感觉",
+      "description": "用一句话描述想要的歌词主题/情绪/风格，1~500个字符"
+    }
+  },
+  "api_hash": "api-448969292",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": "描述个人面对成长后的平静，励志，娓娓道来的感觉",
+      "description": "用一句话描述想要的歌词主题/情绪/风格，1~500个字符"
+    }
+  ]
+}

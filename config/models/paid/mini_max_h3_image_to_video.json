@@ -1,0 +1,212 @@
+{
+  "type": "paid_api",
+  "class_name": "MiniMaxH3ImageToVideo",
+  "name": "MiniMax-H3/图生视频(首尾帧)",
+  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 图生视频（首尾帧），支持首帧图生视频和首尾帧图生视频两种模式，将静态图片转化为 5-15 秒的动态影像。支持 2K/768P 分辨率输出。首帧与尾帧至少上传一张，可控制视频的起止画面，实现精准的过渡与运镜效果。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/minimax_h3_image_to_video.png",
+  "category": "i2v",
+  "api_endpoint": "/openapi/v2/minimax/hailuo-h3/image-to-video",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "firstFrameUrl": {
+      "field": "firstFrameUrl",
+      "type": "string"
+    },
+    "lastFrameUrl": {
+      "field": "lastFrameUrl",
+      "type": "string"
+    },
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "duration": {
+      "field": "duration",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "firstFrameUrl": {
+      "type": "string",
+      "title": "firstFrameUrl",
+      "required": true,
+      "default": ""
+    },
+    "lastFrameUrl": {
+      "type": "string",
+      "title": "lastFrameUrl",
+      "required": false,
+      "default": ""
+    },
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "768P",
+      "enum": [
+        "2K",
+        "768P"
+      ]
+    },
+    "duration": {
+      "type": "string",
+      "title": "duration",
+      "required": true,
+      "default": "5",
+      "enum": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    }
+  },
+  "supported_platforms": [
+    "domestic",
+    "overseas"
+  ],
+  "api_hash": "minimax-h3-image-to-video",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "firstFrameUrl",
+      "label": "首帧图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "lastFrameUrl",
+      "label": "尾帧图片",
+      "widget_type": "image_upload",
+      "required": false,
+      "default": ""
+    },
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "768P",
+      "options": [
+        "2K",
+        "768P"
+      ],
+      "option_values": [
+        "2K",
+        "768P"
+      ]
+    },
+    {
+      "name": "duration",
+      "label": "视频时长",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "5",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "option_values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    }
+  ]
+}

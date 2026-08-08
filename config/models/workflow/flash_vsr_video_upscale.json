@@ -1,0 +1,50 @@
+{
+  "type": "workflow",
+  "class_name": "FlashVSRVideoUpscale",
+  "name": "FlashVSR 视频高清放大",
+  "description": "FlashVSR 是视频超分辨率模型，可将低分辨率视频高清放大至 2x/4x/8x。在放大分辨率的同时保持视频帧间连续性和细节纹理，有效减少噪点和伪影。适合视频增强、老视频修复、画质提升等场景。输入为视频文件，选择放大倍数即可。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/video_upscale_flashvsr.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "1995486658139193345",
+    "overseas": "2082037091541721090"
+  },
+  "input_mapping": {
+    "ref_video": {
+      "node_id": "6",
+      "field": "video"
+    },
+    "upscale_by": {
+      "node_id": "7",
+      "field": "value"
+    }
+  },
+  "category": "v_upscale",
+  "ui_schema": [
+    {
+      "name": "ref_video",
+      "label": "参考视频",
+      "widget_type": "video_upload",
+      "required": true
+    },
+    {
+      "name": "upscale_by",
+      "label": "放大倍数",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 2,
+      "options": [
+        "2x",
+        "4x",
+        "8x"
+      ],
+      "option_values": [
+        2,
+        4,
+        8
+      ]
+    }
+  ]
+}

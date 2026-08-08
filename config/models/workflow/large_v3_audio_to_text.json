@@ -1,0 +1,29 @@
+{
+  "type": "workflow",
+  "class_name": "LargeV3AudioToText",
+  "name": "LargeV3 语音转文本",
+  "description": "LargeV3 是 Whisper 架构的语音转文本模型。识别准确率高，支持多语言音频转录，对背景噪音有容忍度。输入音频文件，输出对应文本内容。适合会议记录、采访转录、字幕生成等场景。",
+  "ui_group": "在线工具",
+  "cover_image": "assets/workflow_covers/rh_wf/audio_to_text.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2033882906212438017",
+    "overseas": "2082069176528666625"
+  },
+  "input_mapping": {
+    "ref_audio": {
+      "node_id": "3",
+      "field": "audio"
+    }
+  },
+  "category": "tools",
+  "ui_schema": [
+    {
+      "name": "ref_audio",
+      "label": "音频文件",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

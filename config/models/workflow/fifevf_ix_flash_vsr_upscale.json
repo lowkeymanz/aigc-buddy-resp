@@ -1,0 +1,50 @@
+{
+  "type": "workflow",
+  "class_name": "FIFEVFIxFlashVSRUpscale",
+  "name": "FIFEVFI+FlashVSR 视频插帧&高清放大",
+  "description": "FlashVSR 视频超分辨率模型（帧插值增强版）。在放大视频分辨率（2x/4x/8x）的同时，通过帧插值技术提升视频流畅度，有效改善低帧率视频的观感。适合老旧视频修复和画质增强。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/video_upscaler_flashvsr_firevfi.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "1985713971762212866",
+    "overseas": "2082022076919386114"
+  },
+  "input_mapping": {
+    "ref_video": {
+      "node_id": "3",
+      "field": "video"
+    },
+    "upscale_by": {
+      "node_id": "21",
+      "field": "value"
+    }
+  },
+  "category": "v_upscale",
+  "ui_schema": [
+    {
+      "name": "ref_video",
+      "label": "参考视频",
+      "widget_type": "video_upload",
+      "required": true
+    },
+    {
+      "name": "upscale_by",
+      "label": "放大倍数",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 2,
+      "options": [
+        "2x",
+        "4x",
+        "8x"
+      ],
+      "option_values": [
+        2,
+        4,
+        8
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "type": "workflow",
+  "class_name": "AceStep15Music",
+  "name": "ACE-Step1.5 音乐生成（文生音乐）",
+  "description": "ACE-Step 1.5 开源音乐生成模型，混合架构（LM规划器+DiT执行器），支持10秒到10分钟音频生成，覆盖1000+乐器与风格，50+语种歌词。模型有3个参数：\n\n1. duration（音频时长，单位秒，建议30-240s最稳定）\n2. positive（音乐描述/Caption，决定音乐整体风格）\n3. lyrics（歌词，控制音乐时序展开）\n\n## positive 提示词写法\n\n描述维度：风格/流派（pop, rock, jazz, electronic, hip-hop, R&B, folk, classical, lo-fi, synthwave）、情绪/氛围（melancholic, uplifting, energetic, dreamy, dark, nostalgic, euphoric, intimate）、乐器（acoustic guitar, piano, synth pads, 808 drums, strings, brass, electric bass）、音色质感（warm, bright, crisp, airy, punchy, lush, raw, polished）、时代参考（80s synth-pop, 90s grunge, vintage soul, modern trap）、制作风格（lo-fi, high-fidelity, live recording, bedroom pop）、人声特点（female vocal, male vocal, breathy, powerful, falsetto, raspy, choir）。\n\n核心原则：①具体优于模糊，如\"sad piano ballad with female breathy vocal\"比\"a sad song\"好；②组合多个维度，风格+情绪+乐器+音色能精准锚定方向；③善用参考，如\"in the style of 80s synthwave\"；④质感词有用，warm/crisp/airy等形容词影响混音和音色倾向；⑤描述粒度决定自由度，写的越少模型发挥空间越大；⑥避免冲突词汇，冲突风格会导致劣化输出，可通过重复强化或时间演变解决；⑦逗号分隔tags和自然语言描述都支持。\n\n## lyrics 歌词写法\n\n结构标记（必用方括号）：基础结构[Intro]、[Verse]/[Verse 1]、[Pre-Chorus]、[Chorus]、[Bridge]、[Outro]；动态段落[Build]、[Drop]、[Breakdown]；器乐段落[Instrumental]、[Guitar Solo]、[Piano Interlude]；特殊标记[Fade Out]。\n\n组合标记用-连接但不超过2个：如[Chorus - anthemic]、[Bridge - whispered]，禁止堆叠超过2个标记。\n\n人声控制：[raspy vocal]沙哑、[whispered]轻语、[falsetto]假声、[powerful belting]高亢、[spoken word]说唱/朗诵、[harmonies]和声。\n\n能量标记：[high energy]、[low energy]、[building energy]、[explosive]、[melancholic]、[euphoric]、[dreamy]、[aggressive]。\n\n写作技巧：①每行6-10个音节效果最佳，同一位置行保持相近音节数；②全大写表示更强演唱力度（如WE ARE THE CHAMPIONS）；③括号内容处理为背景人声/和声（如(together)）；④段落间用空行分隔；⑤避免AI味：禁止形容词堆砌、押韵混乱、段落边界模糊、每行太长、隐喻混用，一首歌坚持一个核心隐喻。\n\n纯音乐写法：lyrics参数填[Instrumental]，或使用器乐结构标记描述展开。\n\n⚠️ Caption与Lyrics必须一致，不能矛盾。如Caption写\"violin solo, classical\"而Lyrics写[Guitar Solo]会导致质量下降。\n\n## 完整示例\n\n音乐描述（positive）：\nMandarin Pop, Female Vocals, Electronic, Cyberpunk, Synthesizer, Driving Bassline, Futuristic, Energetic, Melodic, 128 BPM, High Fidelity, Studio Quality, Wide Stereo, C-Pop.\n\n歌词（lyrics）：\n[Intro] (Instrumental intro with heavy synth bass and digital glitches)\n\n[Verse 1] 城市在代码里苏醒 蓝色的雨 淋湿了虚拟的眼睛 谁在云端 只有信号在回应 为了寻找 一个真实的频率\n\n[Pre-Chorus] 指尖触碰 冰冷的屏幕 回忆加载 只有百分之五十 不仅是 0 和 1 的追逐 心跳的节奏 还没停止\n\n[Chorus] 穿过这片 霓虹的数据森林 我要听见 你最原本的声音 就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒 Oh-oh-oh, 冲破这虚拟的梦境 Oh-oh-oh, 寻找那遗失的黎明\n\n[Verse 2] 街角的灯 闪烁着旧时的光 数据流淌 掩盖了谁的忧伤 在这个 只有现在的时光 我不愿做 沉默的羔羊\n\n[Pre-Chorus] 指尖触碰 冰冷的屏幕 回忆加载 终于百分之百 不仅是 0 和 1 的追逐 此刻的电流 无可替代\n\n[Chorus] 穿过这片 霓虹的数据森林 我要听见 你最原本的声音 就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒 Oh-oh-oh, 冲破这虚拟的梦境 Oh-oh-oh, 寻找那遗失的黎明\n\n[Bridge] (Music slows down, atmospheric pads) 当一切 繁华都归零 当所有 链接都暂停 我是不是 还能 记得你的名\n\n[Guitar Solo / Synth Solo] (High energy melodic solo)\n\n[Chorus] (High Energy) 穿过这片 霓虹的数据森林 我要听见 你最原本的声音 就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒\n\n[Outro] 觉醒... 在这数据的森林 听见... 你的声音 (Fading out with synth echoes)",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/acestep1.5.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2020044996040200193",
+    "overseas": "2082008058871746562"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "107",
+      "field": "text"
+    },
+    "lyrics": {
+      "node_id": "108",
+      "field": "text"
+    },
+    "duration": {
+      "node_id": "109",
+      "field": "value"
+    }
+  },
+  "category": "t2a",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "音乐描述",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "示例：\nMandarin Pop, Female Vocals, Electronic, Cyberpunk, Synthesizer, Driving Bassline, Futuristic, Energetic, Melodic, 128 BPM, High Fidelity, Studio Quality, Wide Stereo, C-Pop."
+    },
+    {
+      "name": "lyrics",
+      "label": "歌词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "示例：\n[Intro] (Instrumental intro with heavy synth bass and digital glitches)\n\n[Verse 1] 城市在代码里苏醒 蓝色的雨 淋湿了虚拟的眼睛\n谁在云端 只有信号在回应 为了寻找 一个真实的频率\n\n[Pre-Chorus] 指尖触碰 冰冷的屏幕 回忆加载 只有百分之五十\n不仅是 0 和 1 的追逐 心跳的节奏 还没停止\n\n[Chorus] 穿过这片 霓虹的数据森林 我要听见 你最原本的声音\n就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒\nOh-oh-oh, 冲破这虚拟的梦境 Oh-oh-oh, 寻找那遗失的黎明\n\n[Verse 2] 街角的灯 闪烁着旧时的光 数据流淌 掩盖了谁的忧伤\n在这个 只有现在的时光 我不愿做 沉默的羔羊\n\n[Pre-Chorus] 指尖触碰 冰冷的屏幕 回忆加载 终于百分之百\n不仅是 0 和 1 的追逐 此刻的电流 无可替代\n\n[Chorus] 穿过这片 霓虹的数据森林 我要听见 你最原本的声音\n就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒\nOh-oh-oh, 冲破这虚拟的梦境 Oh-oh-oh, 寻找那遗失的黎明\n\n[Bridge] (Music slows down, atmospheric pads)\n当一切 繁华都归零 当所有 链接都暂停\n我是不是 还能 记得你的名\n\n[Guitar Solo / Synth Solo] (High energy melodic solo)\n\n[Chorus] (High Energy)\n穿过这片 霓虹的数据森林 我要听见 你最原本的声音\n就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒\n\n[Outro] 觉醒... 在这数据的森林 听见... 你的声音\n(Fading out with synth echoes)"
+    },
+    {
+      "name": "duration",
+      "label": "音频时长（秒）",
+      "widget_type": "number",
+      "required": false,
+      "default": 120,
+      "min_value": 10,
+      "max_value": 600,
+      "step": 1
+    }
+  ]
+}

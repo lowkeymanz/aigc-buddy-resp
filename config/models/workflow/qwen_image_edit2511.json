@@ -1,0 +1,209 @@
+{
+  "type": "workflow",
+  "class_name": "QwenImageEdit2511",
+  "name": "QwenImageEdit2511 图生图编辑（1-3图）",
+  "description": "QwenImageEdit2511 是阿里通义千问团队的图像编辑模型。支持基于 1-3 张参考图进行风格迁移、内容编辑和融合编辑，能较好地理解编辑指令并保持原图结构。适合换脸、风格变换、多图融合等需要保持一致性的编辑任务。编辑结果自然，纹理保留度高。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen_image_edit_2511.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": [
+    {
+      "count": 1,
+      "domestic_id": "2004161679506186241",
+      "overseas_id": "2082381537969963009"
+    },
+    {
+      "count": 2,
+      "domestic_id": "2004152823786946562",
+      "overseas_id": "2082383403491885058"
+    },
+    {
+      "count": 3,
+      "domestic_id": "2004159709529677826",
+      "overseas_id": "2082383918359117825"
+    }
+  ],
+  "input_mapping": {
+    "2004161679506186241": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      }
+    },
+    "2082381537969963009": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      }
+    },
+    "2004152823786946562": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      },
+      "ref_2": {
+        "node_id": "142",
+        "field": "image"
+      }
+    },
+    "2082383403491885058": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      },
+      "ref_2": {
+        "node_id": "142",
+        "field": "image"
+      }
+    },
+    "2004159709529677826": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      },
+      "ref_2": {
+        "node_id": "142",
+        "field": "image"
+      },
+      "ref_3": {
+        "node_id": "147",
+        "field": "image"
+      }
+    },
+    "2082383918359117825": {
+      "positive": {
+        "node_id": "143",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "144",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "145",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "141",
+        "field": "image"
+      },
+      "ref_2": {
+        "node_id": "142",
+        "field": "image"
+      },
+      "ref_3": {
+        "node_id": "147",
+        "field": "image"
+      }
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_1",
+      "label": "参考图片 1",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref_2",
+      "label": "参考图片 2 (可选)",
+      "widget_type": "image_upload",
+      "required": false
+    },
+    {
+      "name": "ref_3",
+      "label": "参考图片 3 (可选)",
+      "widget_type": "image_upload",
+      "required": false
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen3ASRText",
+  "name": "Qwen3-ASR 语音转文本",
+  "description": "Qwen3ASR 是阿里通义千问的语音识别模型。支持多种语言和方言的音频转文本，识别准确率高，对背景噪音有一定鲁棒性。输入为音频文件，输出为对应的文本内容。适合语音转录、字幕生成、会议记录等场景。",
+  "ui_group": "在线工具",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen3asr_text.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2042577822962683905",
+    "overseas": "2082106523015675905"
+  },
+  "input_mapping": {
+    "ref_audio": {
+      "node_id": "3",
+      "field": "audio"
+    }
+  },
+  "category": "a2t",
+  "ui_schema": [
+    {
+      "name": "ref_audio",
+      "label": "音频文件",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

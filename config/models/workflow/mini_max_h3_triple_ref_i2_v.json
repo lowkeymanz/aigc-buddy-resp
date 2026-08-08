@@ -1,0 +1,104 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3TripleRefI2V",
+  "name": "MiniMax-H3 三参考图生视频",
+  "description": "MiniMax-H3 三参考图生视频模型，基于三张参考图片生成动态视频。可将参考图1中的人物、参考图2中的物体/动物、参考图3中的场景环境进行融合，实现多元素组合的复杂视频生成。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例，对应分辨率分别为 640×640、576×768、768×576、480×832、832×480。可自定义视频时长（秒），输出视频自带环境音效。\n\n【提示词写法】分别说明三张参考图的用途（参考图1=人物，参考图2=物体/动物，参考图3=场景环境），再描述融合效果与动作。提示词中用「参考图1」「参考图2」「参考图3」引用对应资源。示例：完美保持参考图1中少女的身份特征与服装，完美还原参考图2中白鹿的形态与冰晶鹿角，并将二者完全融入参考图3的冬日大雪森林环境中。少女走到白鹿身前伸手抚摸，镜头环绕推进。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_triple_ref_i2v.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2084522903437135874",
+    "overseas": "2084519937889505282"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "15",
+      "field": "text"
+    },
+    "seconds": {
+      "node_id": "16",
+      "field": "value"
+    },
+    "width": {
+      "node_id": "17",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "18",
+      "field": "value"
+    },
+    "ref_1": {
+      "node_id": "4",
+      "field": "image"
+    },
+    "ref_2": {
+      "node_id": "21",
+      "field": "image"
+    },
+    "ref_3": {
+      "node_id": "23",
+      "field": "image"
+    }
+  },
+  "category": "i2v",
+  "input_transform": "minimax_h3_ratio",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "参考图1=人物，参考图2=物体，参考图3=场景。例如：保持参考图1人物特征，还原参考图2物体形态，融入参考图3场景环境，镜头环绕推进..."
+    },
+    {
+      "name": "ref_1",
+      "label": "参考图1",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref_2",
+      "label": "参考图2",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref_3",
+      "label": "参考图3",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 5,
+      "options": [
+        "1:1 (640×640)",
+        "3:4 (576×768)",
+        "4:3 (768×576)",
+        "9:16 (480×832)",
+        "16:9 (832×480)"
+      ],
+      "option_values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 15,
+      "step": 1
+    }
+  ]
+}

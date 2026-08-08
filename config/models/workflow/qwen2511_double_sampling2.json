@@ -1,0 +1,64 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen2511DoubleSampling2",
+  "name": "QwenEdit2511 高清重绘（双图·换装融合）",
+  "description": "基于 QwenEdit 2511 的双采样增强图像编辑模型（双图版）。支持两张参考图输入——通常为角色图和服装图，将服装迁移到角色身上。采用双重参考采样技术保持高保真度，适合角色换装、元素融合等场景。【重要】提示词必须使用特定句式才有效，普通描述无法驱动模型：格式为 \"Picture 1: [主体描述]. Picture 2: [服装描述]. Make the [主体] in Picture 1 wear/put on the [服装] from Picture 2. Ensure she is a cohesive living character, not a mannequin.\"避免使用宽泛词汇（如 robot），用具体词（如 cyborg/android）。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen2511_double_sampling_edit2.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2060265702833090562",
+    "overseas": "2082112378719698945"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "322",
+      "field": "text"
+    },
+    "ref1": {
+      "node_id": "78",
+      "field": "image"
+    },
+    "ref2": {
+      "node_id": "301",
+      "field": "image"
+    },
+    "scale_longest": {
+      "node_id": "326",
+      "field": "value"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "Picture 1: a cyborg woman. Picture 2: a pink dress. Make the cyborg woman in Picture 1 put on and wear the exact pink dress from Picture 2. Ensure she is a cohesive living character, not a mannequin."
+    },
+    {
+      "name": "ref1",
+      "label": "参考图片 1（主体）",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref2",
+      "label": "参考图片 2（服装/元素）",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "scale_longest",
+      "label": "最长边 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

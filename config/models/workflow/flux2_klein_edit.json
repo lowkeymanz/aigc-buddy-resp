@@ -1,0 +1,91 @@
+{
+  "type": "workflow",
+  "class_name": "Flux2KleinEdit",
+  "name": "Flux2Klein 图生图编辑",
+  "description": "Flux2Klein编辑是基于 FLUX 架构的图生图编辑模型。以参考图片为基础，根据提示词对画面内容进行修改或增强，保持原图结构的同时响应编辑指令。适合局部修改、风格调整、背景替换等需要保留原图主体的编辑任务。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/flux2_klein_9b_edit.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": [
+    {
+      "count": 1,
+      "domestic_id": "2012162088738758658",
+      "overseas_id": "2082367726307606529"
+    }
+  ],
+  "input_mapping": {
+    "2012162088738758658": {
+      "positive": {
+        "node_id": "117",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "121",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "122",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "76",
+        "field": "image"
+      }
+    },
+    "2082367726307606529": {
+      "positive": {
+        "node_id": "117",
+        "field": "text"
+      },
+      "width": {
+        "node_id": "121",
+        "field": "value"
+      },
+      "height": {
+        "node_id": "122",
+        "field": "value"
+      },
+      "ref_1": {
+        "node_id": "76",
+        "field": "image"
+      }
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_1",
+      "label": "参考图片 1",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

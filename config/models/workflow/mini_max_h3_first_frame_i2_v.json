@@ -1,0 +1,81 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3FirstFrameI2V",
+  "name": "MiniMax-H3 首帧生视频",
+  "description": "MiniMax-H3 首帧图生视频模型，基于输入的首帧图片生成动态视频。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例及自适应模式，对应分辨率分别为 640×640、576×768、768×576、480×832、832×480，自适应模式根据首帧图片自动匹配。可自定义视频时长（秒），输出视频自带环境音效。适合从静态图片生成动态视频、动画起帧等场景。\n\n【提示词写法】描述从首帧画面开始的动态发展，包含动作变化与镜头运动。示例：女剑客原本静坐于溪畔，随后缓缓抬起头看向远方，眼神清澈坚毅，发丝随微风轻柔飘拂。镜头从静止的中景缓慢向前推进，聚焦于面部特写。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_first_frame_i2v.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2084472767495364610",
+    "overseas": "2084301614421561345"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "34",
+      "field": "text"
+    },
+    "ratio": {
+      "node_id": "35",
+      "field": "value"
+    },
+    "seconds": {
+      "node_id": "37",
+      "field": "value"
+    },
+    "ref_image": {
+      "node_id": "4",
+      "field": "image"
+    }
+  },
+  "category": "i2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述从首帧开始的动态发展，包含动作与镜头运动。例如：人物原本静坐，随后缓缓抬头看向远方，镜头从中景缓慢推进至面部特写..."
+    },
+    {
+      "name": "ref_image",
+      "label": "首帧图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 5,
+      "options": [
+        "1:1 (640×640)",
+        "3:4 (576×768)",
+        "4:3 (768×576)",
+        "9:16 (480×832)",
+        "16:9 (832×480)",
+        "自适应"
+      ],
+      "option_values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 15,
+      "step": 1
+    }
+  ]
+}

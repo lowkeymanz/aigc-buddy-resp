@@ -1,0 +1,58 @@
+{
+  "type": "workflow",
+  "class_name": "Chinese3DAnime",
+  "name": "国风3D动漫 文生图",
+  "description": "中国风 3D 动漫文生图模型，通过 LoRA 注入 chinese 3d animation style 风格，专门生成具有中国审美特征的 3D 动漫角色和场景。画面具有明显的中国风美学特征，人物造型精细，色彩饱和度高，适合仙侠/武侠角色设定、国漫风格插画、古风场景等创作。\n【LoRA 触发词】提示词中必须包含 chinese 3d animation style 以激活该风格。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/chinese_3d_anime.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "1994731961375657985",
+    "overseas": "2082016602762465282"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "34",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "50",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "52",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "chinese 3d animation style, 1girl, long hair, hanfu, ancient chinese palace, lotus pond..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

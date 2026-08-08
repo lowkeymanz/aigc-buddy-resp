@@ -1,0 +1,310 @@
+{
+  "type": "paid_api",
+  "class_name": "Seedance20TextToVideo",
+  "name": "seedance2.0/文生视频",
+  "description": "模型价格\n【海外版】按秒计费，总价=单价×生成时长\n  480p:      $0.10/秒 (原生) | 720p:      $0.20/秒 (原生)\n  1080p原生: $0.50/秒 (原生) | 4K原生:    $1.00/秒 (原生)\n  1080p:     $0.24/秒 (超分) | 2k:        $0.26/秒 (超分) | 4k: $0.29/秒 (超分)\n\nseedance 2.0 文生视频，追求最高生成品质。支持 480p/720p/1080p/2k/4k 分辨率输出。仅需文本提示词即可生成 4-15 秒高质量视频，支持多种宽高比、有声视频生成和联网搜索增强。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/seedance_2_0_text_to_video.png",
+  "category": "t2v",
+  "api_endpoint": "/openapi/v2/rhart-video/sparkvideo-2.0/text-to-video",
+  "api_method": "POST",
+  "request_mapping": {
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "duration": {
+      "field": "duration",
+      "type": "string"
+    },
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "generateAudio": {
+      "field": "generateAudio",
+      "type": "boolean"
+    },
+    "ratio": {
+      "field": "ratio",
+      "type": "string"
+    },
+    "webSearch": {
+      "field": "webSearch",
+      "type": "boolean"
+    },
+    "returnLastFrame": {
+      "field": "returnLastFrame",
+      "type": "boolean"
+    },
+    "seed": {
+      "field": "seed",
+      "type": "integer"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "720p",
+      "enum": [
+        "480p",
+        "720p",
+        "native1080p",
+        "native4k",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    "duration": {
+      "type": "string",
+      "title": "duration",
+      "required": true,
+      "default": "5",
+      "enum": [
+        "-1",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "generateAudio": {
+      "type": "boolean",
+      "title": "generateAudio",
+      "required": false,
+      "default": true
+    },
+    "ratio": {
+      "type": "string",
+      "title": "ratio",
+      "required": false,
+      "default": "adaptive",
+      "enum": [
+        "adaptive",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9"
+      ]
+    },
+    "webSearch": {
+      "type": "boolean",
+      "title": "webSearch",
+      "required": false,
+      "default": false
+    },
+    "returnLastFrame": {
+      "type": "boolean",
+      "title": "returnLastFrame",
+      "required": false,
+      "default": false
+    },
+    "seed": {
+      "type": "integer",
+      "title": "seed",
+      "required": false,
+      "default": -1
+    }
+  },
+  "api_hash": "448183167",
+  "ui_schema": [
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "720p",
+      "options": [
+        "480P",
+        "720P",
+        "native1080p",
+        "native4k",
+        "1080P",
+        "2K",
+        "4K"
+      ],
+      "option_values": [
+        "480p",
+        "720p",
+        "native1080p",
+        "native4k",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "name": "duration",
+      "label": "视频时长",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "5",
+      "options": [
+        "-1",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "option_values": [
+        "-1",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "generateAudio",
+      "label": "生成音频",
+      "widget_type": "checkbox",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "adaptive",
+      "options": [
+        "自适应",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "option_values": [
+        "adaptive",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9"
+      ]
+    },
+    {
+      "name": "webSearch",
+      "label": "Web Search",
+      "widget_type": "checkbox",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "returnLastFrame",
+      "label": "返回尾帧",
+      "widget_type": "checkbox",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "seed",
+      "label": "随机种子",
+      "widget_type": "number",
+      "required": false,
+      "default": -1,
+      "min_value": 0,
+      "max_value": 10000,
+      "step": 1
+    }
+  ]
+}

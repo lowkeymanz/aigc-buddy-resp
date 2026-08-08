@@ -1,0 +1,55 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen2511PerspectiveSwitch",
+  "name": "Qwen2511 视角切换（图生图·多角度）",
+  "description": "Qwen2511 视角切换图生图模型。输入一张人物参考图和描述，生成该角色在不同视角、不同镜头距离（特写/中景/远景）和不同拍摄角度（仰视/平视/俯视）下的画面。提示词格式为 `<sks> 视角 镜头角度 景别`（如 `<sks> front view eye-level shot close-up`）。支持 8 个方向（正面/右前/右侧/右后/背面/左后/左侧/左前），4 种角度，3 种景别。适合角色设计、多角度设定图生成、动漫角色表等需要展示角色各个面的场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen2511_perspective_switching.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": [
+    {
+      "count": 1,
+      "domestic_id": "2009597776102952961",
+      "overseas_id": "2082114061340246017"
+    }
+  ],
+  "input_mapping": {
+    "2009597776102952961": {
+      "positive": {
+        "node_id": "141",
+        "field": "text"
+      },
+      "ref_1": {
+        "node_id": "140",
+        "field": "image"
+      }
+    },
+    "2082114061340246017": {
+      "positive": {
+        "node_id": "141",
+        "field": "text"
+      },
+      "ref_1": {
+        "node_id": "140",
+        "field": "image"
+      }
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_1",
+      "label": "参考图片 1",
+      "widget_type": "image_upload",
+      "required": true
+    }
+  ]
+}

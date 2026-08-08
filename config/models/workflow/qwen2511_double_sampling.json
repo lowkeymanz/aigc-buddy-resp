@@ -1,0 +1,54 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen2511DoubleSampling",
+  "name": "QwenEdit2511 高清重绘（单图·图生图）",
+  "description": "基于 QwenEdit 2511 的双采样增强图像编辑模型。采用双重参考采样技术，在编辑过程中对图像特征进行两次采样与融合，显著提升编辑结果与原图的一致性，减少细节损失和变形。支持通过提示词对画面进行修改、风格化、画质增强等操作，适合需要保持高保真度的图片编辑场景。单图输入即可完成高清重绘，无需额外的辅助参考图。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen2511_double_sampling_edit.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2060243761220907010",
+    "overseas": "2082109779710836738"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "299",
+      "field": "text"
+    },
+    "ref1": {
+      "node_id": "78",
+      "field": "image"
+    },
+    "scale_longest": {
+      "node_id": "305",
+      "field": "value"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述编辑后的画面效果..."
+    },
+    {
+      "name": "ref1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "scale_longest",
+      "label": "最长边 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

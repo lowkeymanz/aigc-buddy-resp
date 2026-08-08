@@ -1,0 +1,186 @@
+{
+  "type": "paid_api",
+  "class_name": "RhartImageNG31FlashOfficialTextToImage",
+  "name": "全能图片V2-文生图-官方稳定版",
+  "description": "模型价格\n【海外版】\n  1k: $0.07/次 | 2k: $0.11/次 | 4k: $0.14/次\n\n专为创作者打造的\"闪电级\"影像旗舰。支持 1k/2k/4k 分辨率输出，在保持极速响应的同时，实现了 4K 超高清画质与电影级光影表现的完美平衡。该模型不仅能精准还原复杂的文本意图，更在多角色一致性、精准文字渲染及长宽比兼容性上取得了突破，是追求高效率与专业视觉品质的理想 AI 创作引擎。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_paid/rhart_image_n_g31_flash_official_text_to_image.png",
+  "category": "t2i",
+  "api_endpoint": "/openapi/v2/rhart-image-n-g31-flash-official/text-to-image",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "aspectRatio": {
+      "field": "aspectRatio",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "1k",
+      "enum": [
+        "1k",
+        "2k",
+        "4k"
+      ]
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "aspectRatio",
+      "required": false,
+      "default": "1:1",
+      "enum": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ]
+    }
+  },
+  "api_hash": "448183260",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "1k",
+      "options": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "option_values": [
+        "1k",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "name": "aspectRatio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "1:1",
+      "options": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ],
+      "option_values": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ]
+    }
+  ]
+}

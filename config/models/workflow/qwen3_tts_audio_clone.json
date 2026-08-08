@@ -1,0 +1,40 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen3TTSAudioClone",
+  "name": "Qwen3-TTS 语音克隆",
+  "description": "Qwen3TTS 是阿里通义千问的语音克隆模型。只需 3 秒参考音频即可克隆音色，支持 10 种语言（中/英/日/韩/德/法/俄/葡/西/意）及多种方言。克隆还原度高，可精确复刻说话人的音色和语调特征。适用于有声书、配音、数字人配音等需要特定音色保持一致性的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen3_audio_clone.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2014663509912588289",
+    "overseas": "2082107472176742401"
+  },
+  "input_mapping": {
+    "text": {
+      "node_id": "7",
+      "field": "text"
+    },
+    "ref_audio": {
+      "node_id": "4",
+      "field": "audio"
+    }
+  },
+  "category": "audio_clone",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本..."
+    },
+    {
+      "name": "ref_audio",
+      "label": "参考音频",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

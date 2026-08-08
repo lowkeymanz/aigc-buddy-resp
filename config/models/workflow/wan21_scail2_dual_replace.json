@@ -1,0 +1,89 @@
+{
+  "type": "workflow",
+  "class_name": "Wan21Scail2DualReplace",
+  "name": "Wan2.1-Scail2 视频替换双人角色",
+  "description": "基于 Wan2.1 架构结合 Scail2 身份保持技术的双人视频角色替换模型。上传一段视频和一张包含两人的全身正面参考图，即可将视频中的两个人物主体分别替换为参考图中的对应角色，同时保留原视频的动作轨迹、运镜、光影和背景。参考图需为两人的全身正面照，用于分别提取两个角色的外观特征。相比从零生成视频，替换模式保留了真实拍摄的动态细节，效果更加自然协调。适合双人对话替换、双人互动视频角色替换、影视多人场景统一化等场景。【建议】理论上不限时长但过长易超时，建议 10 秒以内。推荐 480P (854×480)，最高 720P (1280×720)。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/wan21_scail21.png",
+  "source_type": "runninghub",
+  "instance_type": "plus",
+  "source_data": {
+    "domestic": "2067450765622472705",
+    "overseas": "2082116304303030273"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "275",
+      "field": "text"
+    },
+    "replace": {
+      "node_id": "276",
+      "field": "text"
+    },
+    "video": {
+      "node_id": "33",
+      "field": "video"
+    },
+    "ref1": {
+      "node_id": "30",
+      "field": "image"
+    },
+    "width": {
+      "node_id": "134",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "135",
+      "field": "value"
+    }
+  },
+  "category": "v2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "画面描述",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述期望的视频画面效果和动作..."
+    },
+    {
+      "name": "replace",
+      "label": "替换主体",
+      "widget_type": "text_input",
+      "required": true,
+      "placeholder": "person"
+    },
+    {
+      "name": "video",
+      "label": "输入视频",
+      "widget_type": "video_upload",
+      "required": true
+    },
+    {
+      "name": "ref1",
+      "label": "双人参考图",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 854,
+      "min_value": 64,
+      "max_value": 1280,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 480,
+      "min_value": 64,
+      "max_value": 720,
+      "step": 1
+    }
+  ]
+}

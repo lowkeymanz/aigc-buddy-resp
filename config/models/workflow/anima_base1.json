@@ -1,0 +1,58 @@
+{
+  "type": "workflow",
+  "class_name": "AnimaBase1",
+  "name": "Anima-Base1.0 动漫文生图",
+  "description": "Anima-Base 1.0 动漫风格文生图模型，专注于高质量二次元风格生成。支持 Danbooru/Gelbooru 标签体系，适用分辨率 512²–1536²，推荐 30–50 步、CFG 4–5。\n【提示词编写规则】• 格式：使用小写标签，用空格代替下划线（如 brown hair 而非 brown_hair）；• 推荐正向前缀：masterpiece, best quality, score_7, safe,  后接画面描述；• 推荐负向词：worst quality, low quality, score_1, score_2, score_3, artist name；• 艺术家标签前必须加 @（如 @wlop），否则效果微弱；• 标签顺序建议：质量/年份/安全标签 → 人物数量 → 角色名 → 作品系列 → 艺术家 → 通用标签；• 质量标签：masterpiece/best quality/... 或 score_9 至 score_1，可混用；• 支持标签与自然语言混合编写，纯自然语言建议至少两句话避免意外结果；• 生成非动漫风格时，在提示词最开头换行添加数据集标签（如 ye-pop、deviantart）。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/anima_base1.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2057295897054236673",
+    "overseas": "2082011133350780929"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "46",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "47",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "48",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "推荐前缀：masterpiece, best quality, score_7, safe,  后接标签或自然语言。艺术家前加 @，如 1girl, solo, long hair, brown eyes, smile, looking at viewer, @wlop"
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 512,
+      "max_value": 1536,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 512,
+      "max_value": 1536,
+      "step": 1
+    }
+  ]
+}

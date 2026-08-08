@@ -1,0 +1,40 @@
+{
+  "type": "workflow",
+  "class_name": "FishAudioS2TTSAudioClone",
+  "name": "FishAudio-S2 语音克隆（带情感标签）",
+  "description": "FishAudio 单人音色克隆模型。可在文本中通过情感标签控制语调（如 [excited]、[laughing]、[nervous] 等），使克隆音色输出带有指定情感色彩。适合单人角色配音、有声朗读等需要语调和情感变化的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/fishs2_audio_clone.png",
+  "source_type": "runninghub",
+  "instance_type": "plus",
+  "source_data": {
+    "domestic": "2033527407566659586",
+    "overseas": "2082034694649499650"
+  },
+  "input_mapping": {
+    "text": {
+      "node_id": "7",
+      "field": "prompt"
+    },
+    "ref_audio": {
+      "node_id": "4",
+      "field": "audio"
+    }
+  },
+  "category": "audio_clone",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本...\n支持情感控制标签，如：[excited] 开心 [laughing] 笑声"
+    },
+    {
+      "name": "ref_audio",
+      "label": "参考音频",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

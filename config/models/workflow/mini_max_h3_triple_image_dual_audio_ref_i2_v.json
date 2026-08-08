@@ -1,0 +1,124 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3TripleImageDualAudioRefI2V",
+  "name": "MiniMax-H3 三参考图+双音频多模态生视频",
+  "description": "MiniMax-H3 多模态生视频模型，基于三张参考图片和两段参考音频生成动态视频。可同时保持两个角色的身份特征（参考图1和参考图2），并将角色融入参考图3所提供的场景环境中，同时分别为两个角色匹配各自的音色（音色1和音色2），实现双人对话的口型同步（Lip-sync）。参考音频仅用于提取音色特征，模型会自动用对应音色合成提示词中描述的各角色台词，无需事先生成说话语音。相比双参考图+双音频版本，额外支持场景环境参考图，实现人物+场景+音色的三重融合。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例，对应分辨率分别为 640×640、576×768、768×576、480×832、832×480。可自定义视频时长（秒），输出视频自带环境音效。适合双人对话+特定场景、影视对白+环境控制等需要角色+场景+音色三重控制的场景。\n\n【提示词写法】分别说明角色对应的参考图和音色，以及参考图3的场景环境，并在提示词中写明各角色要说的台词。提示词中用「参考图1」「参考图2」「参考图3」「音色1」「音色2」引用对应资源。示例：将参考图1的男性与参考图2的女性安置在参考图3的环境中。男人（参考图1，声音参考音色1）说道“你准备好了吗”，女人（参考图2，声音参考音色2）回应“我准备好了”，场景参考参考图3。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_triple_image_dual_audio_ref_i2v.png",
+  "source_type": "runninghub",
+  "instance_type": "ultra",
+  "source_data": {
+    "domestic": "2084628840730681346",
+    "overseas": "2084566390393507842"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "15",
+      "field": "text"
+    },
+    "seconds": {
+      "node_id": "16",
+      "field": "value"
+    },
+    "width": {
+      "node_id": "19",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "18",
+      "field": "value"
+    },
+    "ref_audio_1": {
+      "node_id": "6",
+      "field": "audio"
+    },
+    "ref_image_1": {
+      "node_id": "4",
+      "field": "image"
+    },
+    "ref_audio_2": {
+      "node_id": "23",
+      "field": "audio"
+    },
+    "ref_image_2": {
+      "node_id": "24",
+      "field": "image"
+    },
+    "ref_image_3": {
+      "node_id": "27",
+      "field": "image"
+    }
+  },
+  "category": "i2v",
+  "input_transform": "minimax_h3_ratio",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "参考图1+音色1为角色1，参考图2+音色2为角色2，参考图3为场景。例如：角色1（参考图1，音色1）说话，角色2（参考图2，音色2）回应，场景参考参考图3..."
+    },
+    {
+      "name": "ref_image_1",
+      "label": "参考图1",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref_audio_1",
+      "label": "参考音色1",
+      "widget_type": "audio_upload",
+      "required": true
+    },
+    {
+      "name": "ref_image_2",
+      "label": "参考图2",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ref_audio_2",
+      "label": "参考音色2",
+      "widget_type": "audio_upload",
+      "required": true
+    },
+    {
+      "name": "ref_image_3",
+      "label": "参考图3（场景环境）",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 5,
+      "options": [
+        "1:1 (640×640)",
+        "3:4 (576×768)",
+        "4:3 (768×576)",
+        "9:16 (480×832)",
+        "16:9 (832×480)"
+      ],
+      "option_values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 15,
+      "min_value": 1,
+      "max_value": 15,
+      "step": 1
+    }
+  ]
+}

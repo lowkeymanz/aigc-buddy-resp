@@ -1,0 +1,58 @@
+{
+  "type": "workflow",
+  "class_name": "Krea2TurboRh",
+  "name": "Krea2 Turbo 文生图（柔和素描风）",
+  "description": "Krea 2 Turbo 是柔和极简素描风格文生图模型，擅长人像与场景生成。支持 256-2048px 分辨率（64 的倍数），默认 1024×1024。宽高比：1:1（正方形）、4:3/3:2（传统比例）、16:9（宽屏）、9:16（手机竖屏）、2.35:1（电影宽银幕）、4:5/2:3（竖版照片）",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/krea2_turbo_rh.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2078480779449032705",
+    "overseas": "2082299425904394241"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "63",
+      "field": "value"
+    },
+    "width": {
+      "node_id": "85",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "86",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述画面内容，支持自然语言和标签。推荐附加素描关键词如 sketch, minimalist, soft pencil, line art, charcoal, subtle shading..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 256,
+      "max_value": 2048,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 256,
+      "max_value": 2048,
+      "step": 1
+    }
+  ]
+}

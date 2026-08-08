@@ -1,0 +1,222 @@
+{
+  "type": "paid_api",
+  "class_name": "MiniMaxH3TextToVideo",
+  "name": "MiniMax-H3/文生视频",
+  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 文生视频，通过文本提示词直接生成高质量动态视频。支持 2K/768P 分辨率输出，可生成 5-15 秒视频，支持 21:9、16:9、4:3、1:1、3:4、9:16 多种宽高比。适合从文字描述快速生成创意短视频、动画、特效等场景。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/minimax_h3_text_to_video.png",
+  "category": "t2v",
+  "api_endpoint": "/openapi/v2/minimax/hailuo-h3/text-to-video",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "duration": {
+      "field": "duration",
+      "type": "string"
+    },
+    "ratio": {
+      "field": "ratio",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "768P",
+      "enum": [
+        "2K",
+        "768P"
+      ]
+    },
+    "duration": {
+      "type": "string",
+      "title": "duration",
+      "required": true,
+      "default": "5",
+      "enum": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "ratio": {
+      "type": "string",
+      "title": "ratio",
+      "required": false,
+      "default": "adaptive",
+      "enum": [
+        "adaptive",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ]
+    }
+  },
+  "supported_platforms": [
+    "domestic",
+    "overseas"
+  ],
+  "api_hash": "minimax-h3-text-to-video",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "768P",
+      "options": [
+        "2K",
+        "768P"
+      ],
+      "option_values": [
+        "2K",
+        "768P"
+      ]
+    },
+    {
+      "name": "duration",
+      "label": "视频时长",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "5",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "option_values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "name": "ratio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "adaptive",
+      "options": [
+        "自适应",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "option_values": [
+        "adaptive",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ]
+    }
+  ]
+}

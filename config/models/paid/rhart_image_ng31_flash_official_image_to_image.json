@@ -1,0 +1,203 @@
+{
+  "type": "paid_api",
+  "class_name": "RhartImageNG31FlashOfficialImageToImage",
+  "name": "全能图片V2-图生图-官方稳定版",
+  "description": "模型价格\n【海外版】\n  1k: $0.07/次 | 2k: $0.11/次 | 4k: $0.14/次\n\n该模型具备卓越的上下文感知能力，支持 1k/2k/4k 分辨率输出，最高可达 4K 精细化输出。它不仅能精准执行自然语言修改指令，更突破性地支持多达 14 张参考图的复杂合成。无论是精准的局部重绘、图像内文字转译，还是在编辑过程中保持主体高度一致，它都能以\"闪电级\"的速度提供专业级影像解决方案。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_paid/rhart_image_n_g31_flash_official_image_to_image.png",
+  "category": "i2i",
+  "api_endpoint": "/openapi/v2/rhart-image-n-g31-flash-official/image-to-image",
+  "api_method": "POST",
+  "request_mapping": {
+    "imageUrls": {
+      "field": "imageUrls",
+      "type": "array"
+    },
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "aspectRatio": {
+      "field": "aspectRatio",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "imageUrls": {
+      "type": "array",
+      "title": "imageUrls",
+      "required": true,
+      "default": []
+    },
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "1k",
+      "enum": [
+        "1k",
+        "2k",
+        "4k"
+      ]
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "aspectRatio",
+      "required": false,
+      "default": "1:1",
+      "enum": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ]
+    }
+  },
+  "api_hash": "448183224",
+  "ui_schema": [
+    {
+      "name": "imageUrls",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "default": []
+    },
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "1k",
+      "options": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "option_values": [
+        "1k",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "name": "aspectRatio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "1:1",
+      "options": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ],
+      "option_values": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9",
+        "1:4",
+        "4:1",
+        "1:8",
+        "8:1"
+      ]
+    }
+  ]
+}

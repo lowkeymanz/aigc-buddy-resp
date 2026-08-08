@@ -1,0 +1,162 @@
+{
+  "type": "paid_api",
+  "class_name": "RhartImageV1OfficialEdit",
+  "name": "全能图片V1-图生图-官方稳定版",
+  "description": "模型价格\n【海外版】$0.03/次\n\n一款前沿的 AI 图像编辑与生成模型，将复杂的视觉修改转化为直观的自然语言指令。依托顶尖的计算机视觉技术，它具备极强的场景语义感知力，能在精准执行\"物体替换\"、\"色彩微调\"或\"构图重构\"的同时，完美锁定原图的光影、材质与整体氛围。无论是专业摄影修图、概念美术设定还是日常创意生产，它都能提供\"无痕级\"的专业编辑体验。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_paid/rhart_image_v1_official_edit.png",
+  "category": "i2i",
+  "api_endpoint": "/openapi/v2/rhart-image-v1-official/edit",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "aspectRatio": {
+      "field": "aspectRatio",
+      "type": "string"
+    },
+    "imageUrls": {
+      "field": "imageUrls",
+      "type": "array"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "aspectRatio",
+      "required": true,
+      "default": "auto",
+      "enum": [
+        "auto",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ]
+    },
+    "imageUrls": {
+      "type": "array",
+      "title": "imageUrls",
+      "required": true,
+      "default": []
+    }
+  },
+  "api_hash": "c0344dd353515c8bcd37effb3503e8f0",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "aspectRatio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "auto",
+      "options": [
+        "自动",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ],
+      "option_values": [
+        "auto",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ]
+    },
+    {
+      "name": "imageUrls",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "default": []
+    }
+  ]
+}

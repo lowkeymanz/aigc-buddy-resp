@@ -1,0 +1,41 @@
+{
+  "type": "workflow",
+  "class_name": "Qwen3TTSVoiceDesign",
+  "name": "Qwen3-TTS 音色设计（文字描述造音色）",
+  "description": "Qwen3TTS 是阿里通义千问的音色设计模型。无需参考音频，仅通过自然语言描述即可创造全新的音色，支持描述性别、年龄、情感、语速、语调等声学特征。适合需要自定义独特角色音色但无参考素材的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen3tts_voice_design.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2014660811913957377",
+    "overseas": "2082108748843188226"
+  },
+  "input_mapping": {
+    "voice_description": {
+      "node_id": "5",
+      "field": "text"
+    },
+    "text": {
+      "node_id": "4",
+      "field": "text"
+    }
+  },
+  "category": "voice_design",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本..."
+    },
+    {
+      "name": "voice_description",
+      "label": "音色描述",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请描述你想要的音色..."
+    }
+  ]
+}

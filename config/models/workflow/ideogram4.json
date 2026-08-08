@@ -1,0 +1,70 @@
+{
+  "type": "workflow",
+  "class_name": "Ideogram4",
+  "name": "Ideogram4 文生图（构图控制）",
+  "description": "Ideogram4 是 Ideogram 团队最新开源文生图模型，主打精细构图控制和优秀风格化效果。核心亮点：• 构图控制 — 除主提示词外，可独立输入构图提示词（composition），精确控制画面中元素的布局、空间关系和层次；• 高品质采样 — 默认 V4_QUALITY_48 预设，48 步高质量推理，画面细节丰富；• 灵活宽高比 — 支持 6:1 至 1:6 的超宽/超高比例，覆盖横幅、手机壁纸、电影宽屏等全场景；• 分辨率范围 — 256-2048px（16 的倍数），默认 1024×1024。使用建议：• positive 提示词：描述画面主体、风格、氛围；• composition 提示词：描述元素位置、空间关系、构图方式（如「主体居中偏左、远景虚化、前景突出」）；• 宽高比选择参考：  - 方形 1:1（1024×1024）→ 社交媒体帖子；  - 横向 3:2（1536×1024）→ 横版插画；  - 宽屏 16:9（1920×1088）→ 视频封面、横幅；  - 竖屏 9:16（1024×1792）→ 手机壁纸；  - 超宽 4:1（1600×400）→ 社交媒体横幅。官方仓库：ideogram-oss/ideogram4（开源模型）",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/ideogram4_text_image.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2070424487031562241",
+    "overseas": "2082344974338752514"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "205",
+      "field": "value"
+    },
+    "composition": {
+      "node_id": "234",
+      "field": "prompt"
+    },
+    "width": {
+      "node_id": "236",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "237",
+      "field": "value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词 (Positive)",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述画面内容、主体、风格、氛围..."
+    },
+    {
+      "name": "composition",
+      "label": "构图控制 (Composition)",
+      "widget_type": "text_area",
+      "required": false,
+      "default": "",
+      "placeholder": "描述元素位置、空间关系、构图方式。如：主体居中偏左、远景虚化..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 256,
+      "max_value": 2048,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 256,
+      "max_value": 2048,
+      "step": 1
+    }
+  ]
+}

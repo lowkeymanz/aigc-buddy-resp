@@ -1,0 +1,77 @@
+{
+  "type": "workflow",
+  "class_name": "Hunyuan15T2V720P",
+  "name": "混元1.5 文生视频（720P·加速版）",
+  "description": "腾讯混元1.5文生视频模型，业界顶尖的运动质量和画面表现力。输出 720P 分辨率，支持横竖屏切换、可调帧率和时长，采用多模态大语言模型作为文本编码器，对复杂提示词的理解能力强，生成的视频运动流畅、视觉质量高。综合评测排名领先，适合对画质有较高要求的场景。【建议】总帧数上限约 81 帧，推荐 5 秒 @ 16fps（80 帧）。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/hunyuan1.5_i2v_720p.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2005971109587668993",
+    "overseas": "2082303876933353473"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "134",
+      "field": "text"
+    },
+    "orientation": {
+      "node_id": "156",
+      "field": "value"
+    },
+    "fps": {
+      "node_id": "138",
+      "field": "value"
+    },
+    "seconds": {
+      "node_id": "141",
+      "field": "value"
+    }
+  },
+  "category": "t2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "orientation",
+      "label": "方向",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 1,
+      "options": [
+        "横屏 (16:9)",
+        "竖屏 (9:16)"
+      ],
+      "option_values": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 16,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    }
+  ]
+}

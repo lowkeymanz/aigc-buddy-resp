@@ -1,0 +1,188 @@
+{
+  "type": "paid_api",
+  "class_name": "RhartImageNProOfficialEditUltra",
+  "name": "全能图片PRO-图生图Ultra-官方稳定版",
+  "description": "模型价格\n【海外版】\n  4k: $0.14/次 | 8k: $0.16/次\n\n进化级影像编辑与生成模型。它将复杂的后期处理简化为直观的自然语言对话，凭借深度的语义感知能力，模型能精准识别场景结构、物体关联及光影逻辑，实现无痕的局部修改或全局重塑。除了具备原生 4K/8K 工业级输出外，其核心亮点在于强大的多语言文字自动翻译与排版功能，以及摄影级的摄像机参数控制（如焦距、景深及色调）。无论是维护品牌角色的一致性，还是跨画幅的比例适配，它都能在数秒内交付生产级别的专业视觉稿。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_paid/rhart_image_n_pro_official_edit_ultra.png",
+  "category": "i2i",
+  "api_endpoint": "/openapi/v2/rhart-image-n-pro-official/edit-ultra",
+  "api_method": "POST",
+  "request_mapping": {
+    "imageUrls": {
+      "field": "imageUrls",
+      "type": "array"
+    },
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "resolution": {
+      "field": "resolution",
+      "type": "string"
+    },
+    "aspectRatio": {
+      "field": "aspectRatio",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "imageUrls": {
+      "type": "array",
+      "title": "imageUrls",
+      "required": true,
+      "default": []
+    },
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "resolution": {
+      "type": "string",
+      "title": "resolution",
+      "required": true,
+      "default": "8k",
+      "enum": [
+        "4k",
+        "8k"
+      ]
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "aspectRatio",
+      "required": false,
+      "default": "3:4",
+      "enum": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ]
+    }
+  },
+  "api_hash": "92ccf82bfb184e273df267849c429fa1",
+  "ui_schema": [
+    {
+      "name": "imageUrls",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "default": []
+    },
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "resolution",
+      "label": "分辨率",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "8k",
+      "options": [
+        "4K",
+        "8K"
+      ],
+      "option_values": [
+        "4k",
+        "8k"
+      ]
+    },
+    {
+      "name": "aspectRatio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "3:4",
+      "options": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ],
+      "option_values": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ]
+    }
+  ]
+}

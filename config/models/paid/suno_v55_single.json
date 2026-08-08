@@ -1,0 +1,139 @@
+{
+  "type": "paid_api",
+  "class_name": "SunoV55Single",
+  "name": "suno-single-v5.5",
+  "description": "模型价格\n【海外版】$0.12/次\n\nSuno Single V5.5 一句话音乐生成模型。用户只需输入一句话描述歌曲主题或氛围，\n模型自动生成包含旋律、歌词和人声的两首备选完整歌曲。\nV5.5 在人声真实感、乐器分离度和动态范围上达到 Suno 历史最高水平，\n能够处理更细腻的情感表达和复杂的风格混搭，无需音乐基础即可快速产出专业级音乐。\n\n## 参数说明\n\n1. description（音乐描述）：1~400个字符，用一段文字描述想要的音乐（风格/情绪/场景）\n   示例：中国古典，琵琶+古琴，宁静，慢速，纯音乐；或：Mandarin Pop, Female Vocals, Electronic, Cyberpunk, Synthesizer\n2. title（歌曲标题）：选填，0~80个字符，留空时 Suno 自动取名\n3. make_instrumental（纯音乐模式）：选填，默认\"否\"含人声，\"是\"则生成纯器乐\n\n## 提示词写法\n\n描述维度：风格/流派（pop, rock, jazz, electronic, hip-hop, R&B, folk, classical, lo-fi, synthwave）、\n情绪/氛围（melancholic, uplifting, energetic, dreamy, dark, nostalgic, euphoric, intimate）、\n乐器（acoustic guitar, piano, synth pads, 808 drums, strings, brass, electric bass）、\n人声特点（female vocal, male vocal, breathy, powerful, falsetto, raspy, choir）。\n\n核心原则：①具体优于模糊；②组合多个维度锚定方向；③逗号分隔和自然语言都支持；\n④描述越详细可控性越强，越省略创意空间越大。\n\n## 完整示例\n\ndescription：中国古典，琵琶+古琴，宁静，慢速，电影感，纯音乐\nmake_instrumental：是",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/suno_v5_5_single.png",
+  "category": "t2a",
+  "api_endpoint": "/openapi/v2/rhart-audio/suno-v5.5/single",
+  "api_method": "POST",
+  "request_mapping": {
+    "description": {
+      "field": "description",
+      "type": "string"
+    },
+    "title": {
+      "field": "title",
+      "type": "string"
+    },
+    "make_instrumental": {
+      "field": "make_instrumental",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "description": {
+      "type": "string",
+      "title": "description",
+      "required": true,
+      "default": "中国古典，琵琶+古琴，宁静，慢速，纯音乐",
+      "description": "用一段文字描述想要的音乐（风格/情绪/场景），1~400个字符"
+    },
+    "title": {
+      "type": "string",
+      "title": "title",
+      "required": false,
+      "description": "歌曲标题，留空时 Suno 自动取名，0~80个字符"
+    },
+    "make_instrumental": {
+      "type": "string",
+      "title": "make_instrumental",
+      "required": false,
+      "default": "false",
+      "enum": [
+        "false",
+        "true"
+      ],
+      "description": "是否生成纯音乐（无人声）"
+    }
+  },
+  "api_hash": "api-448969286",
+  "ui_schema": [
+    {
+      "name": "description",
+      "label": "音乐描述",
+      "widget_type": "text_area",
+      "required": true,
+      "default": "中国古典，琵琶+古琴，宁静，慢速，纯音乐",
+      "description": "用一段文字描述想要的音乐（风格/情绪/场景），1~400个字符"
+    },
+    {
+      "name": "title",
+      "label": "歌曲标题",
+      "widget_type": "text_input",
+      "required": false,
+      "description": "歌曲标题，留空时 Suno 自动取名，0~80个字符"
+    },
+    {
+      "name": "make_instrumental",
+      "label": "纯音乐模式",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": "false",
+      "description": "是否生成纯音乐（无人声）",
+      "options": [
+        "否",
+        "是"
+      ],
+      "option_values": [
+        "false",
+        "true"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "type": "paid_api",
+  "class_name": "SunoV55Custom",
+  "name": "suno-custom-v5.5",
+  "description": "模型价格\n【海外版】$0.12/次\n\nSuno Custom V5.5 自定义音乐生成模型。用户输入自定义歌词和风格标签，生成两首备选歌曲。\nV5.5 版本在人声真实感、乐器分离度和动态范围上达到 Suno 历史最高水平，\n适合个人原创单曲制作或独立音乐人 Demo 创作。\n\n## 参数说明\n\n1. title（歌曲标题）：1~80个字符，默认\"心字香\"\n2. tags（风格标签）：1~1000个字符，多个标签用英文逗号分隔，描述音乐风格/情绪/人声等\n   示例：流行,民谣,旋律,电影感,女声\n3. prompt（歌词）：1~5000个字符，支持结构标签如 [Intro]、[Verse]、[Chorus]、[Bridge] 等\n\n## lyrics 歌词写法\n\n结构标记：基础结构 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge]、[Outro]；\n组合标记用-连接但不超过2个：如 [Chorus - anthemic]、[Bridge - whispered]；\n人声控制：[raspy vocal]、[whispered]、[falsetto]、[powerful belting]、[spoken word]、[harmonies]；\n能量标记：[high energy]、[low energy]、[building energy]、[explosive]、[melancholic]、[euphoric]；\n纯音乐写法：prompt 填 [Instrumental]；\n标题和风格标签决定音乐方向，歌词控制时序展开，三者需保持一致。\n\n## 完整示例\n\n标题（title）：数据森林\n风格标签（tags）：Mandarin Pop, Female Vocals, Electronic, Cyberpunk, Synthesizer, Driving Bassline, Futuristic, Energetic\n歌词（prompt）：\n[Intro] (Instrumental intro with heavy synth bass and digital glitches)\n\n[Verse 1] 城市在代码里苏醒 蓝色的雨 淋湿了虚拟的眼睛\n谁在云端 只有信号在回应 为了寻找 一个真实的频率\n\n[Pre-Chorus] 指尖触碰 冰冷的屏幕 回忆加载 只有百分之五十\n不仅是 0 和 1 的追逐 心跳的节奏 还没停止\n\n[Chorus] 穿过这片 霓虹的数据森林 我要听见 你最原本的声音\n就算世界 只是算法的倒影 我的脉搏 依然为你而觉醒\n\n[Outro] 觉醒... 在这数据的森林 听见... 你的声音\n(Fading out with synth echoes)",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_paid/suno_v5_5_custom.png",
+  "category": "t2a",
+  "api_endpoint": "/openapi/v2/rhart-audio/suno-v5.5/custom",
+  "api_method": "POST",
+  "request_mapping": {
+    "title": {
+      "field": "title",
+      "type": "string"
+    },
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "tags": {
+      "field": "tags",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "title": {
+      "type": "string",
+      "title": "title",
+      "required": true,
+      "default": "心字香",
+      "description": "歌曲标题，1~80个字符"
+    },
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "description": "完整歌词，支持 [Intro]、[Verse]、[Chorus]、[Bridge] 等结构标签，1~5000个字符"
+    },
+    "tags": {
+      "type": "string",
+      "title": "tags",
+      "required": true,
+      "default": "流行,民谣,旋律,电影感,女声",
+      "description": "风格描述，多个标签用英文逗号分隔，1~1000个字符"
+    }
+  },
+  "api_hash": "api-448969287",
+  "ui_schema": [
+    {
+      "name": "title",
+      "label": "歌曲标题",
+      "widget_type": "text_input",
+      "required": true,
+      "default": "心字香",
+      "description": "歌曲标题，1~80个字符"
+    },
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "description": "完整歌词，支持 [Intro]、[Verse]、[Chorus]、[Bridge] 等结构标签，1~5000个字符"
+    },
+    {
+      "name": "tags",
+      "label": "风格标签",
+      "widget_type": "text_input",
+      "required": true,
+      "default": "流行,民谣,旋律,电影感,女声",
+      "description": "风格描述，多个标签用英文逗号分隔，1~1000个字符"
+    }
+  ]
+}

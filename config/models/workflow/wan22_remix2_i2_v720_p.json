@@ -1,0 +1,87 @@
+{
+  "type": "workflow",
+  "class_name": "Wan22Remix2I2V720P",
+  "name": "Wan2.2-Remix 首帧图生视频（720P）",
+  "description": "Wan2.2 Remix 是阿里万相团队的图生视频模型，采用 MoE 架构（27B 总参数）。输出 720P 分辨率，支持横竖屏切换、可调帧率和时长，运动物理合理，对图片细节保持度高，尤其在相机运镜和主体动画方面表现优秀。适合以图生视频的高质量场景。【建议】总帧数上限约 81 帧，推荐 5 秒 @ 16fps（80 帧）。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/wan22remix2_i2v_720p.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2019298877509210114",
+    "overseas": "2082386109832986625"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "74",
+      "field": "text"
+    },
+    "ref_image": {
+      "node_id": "83",
+      "field": "image"
+    },
+    "orientation": {
+      "node_id": "81",
+      "field": "value"
+    },
+    "fps": {
+      "node_id": "86",
+      "field": "value"
+    },
+    "seconds": {
+      "node_id": "84",
+      "field": "value"
+    }
+  },
+  "category": "i2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_image",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "orientation",
+      "label": "方向",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 1,
+      "options": [
+        "横屏 (16:9)",
+        "竖屏 (9:16)"
+      ],
+      "option_values": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 24,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    }
+  ]
+}

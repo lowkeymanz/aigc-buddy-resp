@@ -1,0 +1,145 @@
+{
+  "type": "paid_api",
+  "class_name": "RhartImageV1OfficialTextToImage",
+  "name": "全能图片V1-文生图-官方稳定版",
+  "description": "模型价格\n【海外版】$0.03/次\n\n一款轻量级且功能强大的 AI 图像生成模型。它专为寻求快速、高质量视觉效果的创作者设计，只需简单的文字提示，即可在数秒内将创意转化为富有表现力、清晰逼真的图像。该模型具备卓越的构图能力和广泛的风格适应性（写实、插画、动漫及绘画等），能精准理解文本语境中的主体与背景关系，呈现自然平衡的光影效果。其快速高效的特性非常适合快速原型制作和社交媒体内容创作。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_paid/rhart_image_v1_official_text_to_image.png",
+  "category": "t2i",
+  "api_endpoint": "/openapi/v2/rhart-image-v1-official/text-to-image",
+  "api_method": "POST",
+  "request_mapping": {
+    "prompt": {
+      "field": "prompt",
+      "type": "string"
+    },
+    "aspectRatio": {
+      "field": "aspectRatio",
+      "type": "string"
+    }
+  },
+  "response_mapping": {
+    "taskId": {
+      "field": "taskId",
+      "type": "string"
+    },
+    "status": {
+      "field": "status",
+      "type": "string"
+    },
+    "errorCode": {
+      "field": "errorCode",
+      "type": "string"
+    },
+    "errorMessage": {
+      "field": "errorMessage",
+      "type": "string"
+    },
+    "results.url": {
+      "field": "results.url",
+      "type": "url"
+    },
+    "results.outputType": {
+      "field": "results.outputType",
+      "type": "string"
+    },
+    "results.text": {
+      "field": "results.text",
+      "type": "string"
+    },
+    "clientId": {
+      "field": "clientId",
+      "type": "string"
+    },
+    "promptTips": {
+      "field": "promptTips",
+      "type": "string"
+    },
+    "usage.thirdPartyConsumeMoney": {
+      "field": "usage.thirdPartyConsumeMoney",
+      "type": "string"
+    },
+    "usage.consumeMoney": {
+      "field": "usage.consumeMoney",
+      "type": "string"
+    },
+    "usage.consumeCoins": {
+      "field": "usage.consumeCoins",
+      "type": "string"
+    },
+    "usage.taskCostTime": {
+      "field": "usage.taskCostTime",
+      "type": "string"
+    }
+  },
+  "api_spec": {
+    "prompt": {
+      "type": "string",
+      "title": "prompt",
+      "required": true,
+      "default": ""
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "aspectRatio",
+      "required": true,
+      "default": "3:4",
+      "enum": [
+        "auto",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ]
+    }
+  },
+  "api_hash": "448183253",
+  "ui_schema": [
+    {
+      "name": "prompt",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "default": ""
+    },
+    {
+      "name": "aspectRatio",
+      "label": "画面比例",
+      "widget_type": "combo_box",
+      "required": true,
+      "default": "3:4",
+      "options": [
+        "自动",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ],
+      "option_values": [
+        "auto",
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "5:4",
+        "4:5",
+        "21:9"
+      ]
+    }
+  ]
+}

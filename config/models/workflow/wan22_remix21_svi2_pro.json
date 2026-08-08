@@ -1,0 +1,68 @@
+{
+  "type": "workflow",
+  "class_name": "Wan22Remix21SVI2Pro",
+  "name": "Wan2.2-Remix 首帧图生长视频",
+  "description": "Wan2.2 Remix 长视频模型，基于输入图片生成多片段连续长视频，单次调用可产出最长 1 分钟视频。提示词为多行文本，每行一个片段，用英文竖线 '|' 分隔提示词和时长（秒）。模型自动按片段描述生成连续画面并在片段间平滑过渡，适合故事短片、分镜串联、同一场景连续叙事。【提示词示例】\nThe detective slowly turns her head to look into the camera, rain sliding off her coat, expression serious. | 4\nShe raises her hand to touch a floating holographic interface, scrolling through data profiles. | 5\nA futuristic police cruiser lands behind her, steam and rain blowing in all directions. | 5\n【注意】模型基于单张参考图生成视频，多片段描述仅控制动作/镜头的时间变化，无法切换场景背景或角色造型。如需多场景切换，请使用分镜尾帧接力或多参考图分段方案。\n【建议】单片段上限约 81 帧（推荐 5 秒 @ 16fps），多片段组合可实现更长总时长。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/wan22remix21svi2pro.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2011456654914621441",
+    "overseas": "2082291018313334786"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "383",
+      "field": "text"
+    },
+    "ref_image": {
+      "node_id": "371",
+      "field": "image"
+    },
+    "fps": {
+      "node_id": "379",
+      "field": "value"
+    },
+    "longest": {
+      "node_id": "373",
+      "field": "value"
+    }
+  },
+  "category": "i2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "ref_image",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 24,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "longest",
+      "label": "最长边",
+      "widget_type": "number",
+      "required": false,
+      "default": 960,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}

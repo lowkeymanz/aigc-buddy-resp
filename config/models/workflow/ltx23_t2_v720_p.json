@@ -1,0 +1,77 @@
+{
+  "type": "workflow",
+  "class_name": "LTX23T2V720P",
+  "name": "LTX2.3 文生视频（720P）",
+  "description": "LTX2.3 是 Lightricks 最新的 DiT 视频生成模型，文生视频版本。输出 720P 分辨率，支持横竖屏切换、可调帧率和时长，运动流畅自然，物理合理性好。基于 Diffusion Transformer 架构，对提示词的理解准确，适合从零生成短视频内容。速度较快，生成效果稳定。【建议】总帧数上限约 161 帧，推荐 5 秒 @ 24fps（120 帧）。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/ltx23_t2v_720p.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2031003213045960706",
+    "overseas": "2082101336939134977"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "5013",
+      "field": "text"
+    },
+    "orientation": {
+      "node_id": "5050",
+      "field": "value"
+    },
+    "fps": {
+      "node_id": "5055",
+      "field": "value"
+    },
+    "seconds": {
+      "node_id": "5056",
+      "field": "value"
+    }
+  },
+  "category": "t2v",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词..."
+    },
+    {
+      "name": "orientation",
+      "label": "方向",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 1,
+      "options": [
+        "横屏 (16:9)",
+        "竖屏 (9:16)"
+      ],
+      "option_values": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "fps",
+      "label": "帧率 (FPS)",
+      "widget_type": "number",
+      "required": false,
+      "default": 24,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    },
+    {
+      "name": "seconds",
+      "label": "时长 (秒)",
+      "widget_type": "number",
+      "required": false,
+      "default": 5,
+      "min_value": 1,
+      "max_value": 60,
+      "step": 1
+    }
+  ]
+}
