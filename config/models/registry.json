@@ -1,5 +1,5 @@
 {
-  "version": "5",
+  "version": "6",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -78,7 +78,6 @@
     "workflow/wan22_bernini_three_i2_v.json": "b7204f161b3f50e8a936fcfed54d263d",
     "workflow/wan22_remix21_svi2_pro.json": "1a8f70b7c9328ac64e9472e80fc6ab87",
     "workflow/wan22_remix2_i2_v720_p.json": "9080f22e6bf80eb0f85f51021911c5ec",
-    "workflow/z_image_turbo.json": "973c2e27e9b7ceecc986a42734fbe25b",
-    "workflow/z_image_turbo_quality.json": "3f790526a114ce2e1153395dbd868a03"
+    "workflow/z_image_turbo.json": "973c2e27e9b7ceecc986a42734fbe25b"
   }
 }
