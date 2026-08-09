@@ -1,0 +1,41 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3ImageEditHD",
+  "name": "MiniMax-H3 图像编辑（高清版）",
+  "description": "MiniMax-H3 图像编辑高清版，基于 MiniMax-H3 模型进行图像编辑后，通过 FlashVSR1.1+SeedVR2.5+TTP 三阶段高清修复流水线提升输出画质。编辑阶段先理解原图内容，再根据提示词对画面进行修改；修复阶段对编辑结果进行超分辨率重建与细节增强，输出高清编辑图像。在一致性方面表现良好，适合人物特征保持、场景替换、局部修改等需要保持原图主体特征的编辑任务。\n\n【提示词写法】先声明保持原图中人物/物体的特征不变，再描述需要修改的内容。示例：保持同一个女孩的特征完全不变（银色高马尾、翠绿色双眼）。将场景替换为深夜下着暴雨的城市街道。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/mini_max_h3_image_edit_hd.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2086391023395233793",
+    "overseas": "2086461060659662849"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "19",
+      "field": "prompt"
+    },
+    "ref_image": {
+      "node_id": "1",
+      "field": "image"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "编辑提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "先声明保持原图特征不变，再描述修改内容。例如：保持同一个女孩的特征完全不变（银色高马尾、翠绿色双眼）。将场景替换为深夜下着暴雨的城市街道。"
+    },
+    {
+      "name": "ref_image",
+      "label": "编辑图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "需要编辑的原始图片"
+    }
+  ]
+}
