@@ -1,5 +1,5 @@
 {
-  "version": "10",
+  "version": "11",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -243,6 +243,7 @@
     "rh_wf/hunyuan_foley.png": "a0944c119184331b766e0e1b1df7dfbe",
     "rh_wf/ideogram4_text_image.png": "bc467a3c49a24addb22dd20cdbd5c681",
     "rh_wf/indextts2_audio_clone.png": "ba6d5586e6b64f9b002d1b25da08a1be",
+    "rh_wf/krea2_turbo_ig.png": "1228e9de30b8319b1cd5096a06a00f15",
     "rh_wf/krea2_turbo_kl.png": "90f53e316f0775fd23af156e4e238ad3",
     "rh_wf/krea2_turbo_qs.png": "84b3b32016d0a04d99edcef4fc1d95fc",
     "rh_wf/krea2_turbo_rh.png": "2ace77db0440d8d4336ffef7a14c72c8",
