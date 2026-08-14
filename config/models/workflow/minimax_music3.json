@@ -8,8 +8,8 @@
   "source_type": "runninghub",
   "instance_type": "standard",
   "source_data": {
-    "domestic": "2088087903628197889",
-    "overseas": "2088106169742221313"
+    "domestic": "2088106169742221313",
+    "overseas": "2088087903628197889"
   },
   "input_mapping": {
     "caption": {
