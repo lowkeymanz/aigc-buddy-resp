@@ -1,0 +1,55 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxMusic3",
+  "name": "MiniMax-Music3 音乐生成（文生音乐）",
+  "description": "MiniMax Music3 开源音乐生成模型，支持最长5分钟完整歌曲生成，输出32kHz 16-bit立体声音频。模型采用双条件输入：音乐描述（caption）控制整体风格与编曲，歌词（lyrics）控制人声内容与时序展开。模型有3个参数：\n\n1. caption（音乐描述，决定音乐整体风格、人声特征与编曲走向）\n2. lyrics（歌词，控制人声内容与歌曲结构展开）\n3. max_duration（目标时长，单位秒，10-300秒）\n\n## caption 音乐描述写法\n\n音乐描述定义了音乐的风格、情感走向、人声表现、编曲与制作特征。建议按以下结构化维度描述：\n\n**Global Metadata（全局元数据）**\n- Genre：风格/流派（Pop, Rock, Electronic, R&B, Folk, Classical, Hip-Hop, Lo-fi, Synthwave 等）\n- Tempo：速度（如 124 BPM）\n- Mood：情绪/氛围（Uplifting, Melancholic, Energetic, Dreamy, Dark, Nostalgic, Euphoric, Intimate 等）\n- Production：制作风格（Modern, High-fidelity, Wide stereo, Lo-fi, Bedroom pop, Vintage 等）\n\n**Vocal Details（人声细节）**\n- Vocal gender：人声性别（Female/Male vocal）\n- Timbre：音色特征（Young, Clear, Bright, Breathy, Raspy, Powerful 等）\n- Register：音域（Mid-high, Alto, Tenor, Falsetto 等）\n- Performance：演唱方式（Natural restrained, Emotionally building, Powerful belting 等）\n- Harmony：和声安排（Multi-layer harmonies, Backing vocals 等）\n\n**Arrangement（编曲安排）**\n按段落描述乐器与编曲变化：Intro、Verse、Pre-Chorus、Chorus、Bridge、Final Chorus、Outro 各段的核心乐器与编曲特征。\n\n核心原则：①具体优于模糊，\"现代电子流行，带有电影感\"比\"流行音乐\"好；②组合多个维度，风格+情绪+乐器+音色能精准锚定方向；③按段落描述编曲变化，让模型理解歌曲的动态发展；④caption与lyrics必须一致，不能矛盾。\n\n## lyrics 歌词写法\n\n结构标记（必用方括号）：\n- 基础结构：[Intro]、[Verse]/[Verse 1]、[Verse 2]、[Pre-Chorus]、[Chorus]、[Bridge]、[Final Chorus]、[Outro]\n- 器乐段落：[Instrumental]、[Guitar Solo]、[Piano Interlude]\n- 特殊标记：[Fade Out]\n\n写作技巧：\n- 每行6-10个音节效果最佳\n- 段落间用空行分隔\n- 全大写表示更强演唱力度（如 WE ARE THE CHAMPIONS）\n- 括号内容处理为背景人声/和声（如 (together)）\n- 纯音乐写法：lyrics 填 [Instrumental]\n\n⚠️ caption与lyrics必须一致，不能矛盾。如caption写\"Piano ballad\"而lyrics写[Guitar Solo]会导致质量下降。\n\n## 完整示例\n\n音乐描述（caption）：\nGlobal Metadata:\nGenre: 现代电子流行，带有电影感\nTempo: 124 BPM\nMood: 青春、明亮、充满希望，从克制逐渐走向强烈爆发\nProduction: 现代、高保真、宽立体声\n\nVocal Details:\nVocal gender: 女声\nTimbre: 年轻、清澈、明亮，带轻微空气感\nRegister: 中高音\nPerformance: 主歌自然克制，Pre-Chorus逐渐增强，副歌具有明显情绪爆发\nHarmony: 副歌加入多层女声和声\n\nArrangement:\nIntro: 柔和Synth和稀疏电子鼓\nVerse: 干净电吉他、轻量鼓组，保留空间\nPre-Chorus: 增加低频、打击乐和持续上升的Synth\nChorus: 完整电子鼓组、深沉Bass、宽立体声Synth、明亮电吉他和多层和声\nBridge: 编曲明显收缩，以钢琴和氛围Synth为主\nFinal Chorus: 所有核心乐器完整进入，达到全曲最大能量\nOutro: 逐渐减少鼓组和低频，只留下柔和Synth和人声\n\n歌词（lyrics）：\n[Intro]\n\n城市还没有醒来\n霓虹倒映在窗外\n\n[Verse 1]\n\n我们走过安静的街\n风把昨天吹得很远\n没有人知道终点在哪\n只有脚下的光还在闪\n\n[Pre-Chorus]\n\n当世界开始加速\n当心跳无法停住\n抬起头 看见天空\n正在一点一点亮起来\n\n[Chorus]\n\n向着光奔跑\n就算前方没有答案\n让所有遗憾\n变成今晚最亮的火焰\n\n向着光奔跑\n别让梦想停在昨天\n当黎明到来\n我们还站在这里\n\n[Verse 2]\n\n时间从指尖滑落\n我们却没有回头\n那些曾经害怕的选择\n终于变成自己的宇宙\n\n[Bridge]\n\n如果黑夜还很长\n那就让心跳成为方向\n如果世界没有回应\n至少我们还可以歌唱\n\n[Final Chorus]\n\n向着光奔跑\n就算前方没有答案\n让所有遗憾\n变成今晚最亮的火焰\n\n向着光奔跑\n直到黎明穿过天际\n当黎明到来\n我们终于看见自己\n\n[Outro]\n\n城市慢慢醒来\n而我们继续向前",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_music3.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2088087903628197889",
+    "overseas": "2088106169742221313"
+  },
+  "input_mapping": {
+    "caption": {
+      "node_id": "54",
+      "field": "text"
+    },
+    "lyrics": {
+      "node_id": "55",
+      "field": "text"
+    },
+    "max_duration": {
+      "node_id": "53",
+      "field": "value"
+    }
+  },
+  "category": "t2a",
+  "ui_schema": [
+    {
+      "name": "caption",
+      "label": "音乐要求",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述音乐的风格、人声特征与编曲安排。建议按结构化格式：\n\nGlobal Metadata:\nGenre: 风格流派\nTempo: 速度 BPM\nMood: 情绪氛围\nProduction: 制作风格\n\nVocal Details:\nVocal gender: 人声性别\nTimbre: 音色特征\nRegister: 音域\nPerformance: 演唱方式\nHarmony: 和声安排\n\nArrangement:\nIntro: ...\nVerse: ...\nChorus: ...\nBridge: ...\nOutro: ..."
+    },
+    {
+      "name": "lyrics",
+      "label": "歌词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "使用结构标签编写歌词：\n\n[Intro]\n\n[Verse 1]\n第一段歌词...\n\n[Pre-Chorus]\n预副歌歌词...\n\n[Chorus]\n副歌歌词...\n\n[Bridge]\n桥段歌词...\n\n[Outro]\n尾奏歌词...\n\n纯音乐请填 [Instrumental]"
+    },
+    {
+      "name": "max_duration",
+      "label": "目标时长（s）",
+      "widget_type": "number",
+      "required": false,
+      "default": 120.0,
+      "min_value": 10,
+      "max_value": 300,
+      "step": 0.5
+    }
+  ]
+}
