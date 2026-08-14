@@ -29,14 +29,14 @@
   "ui_schema": [
     {
       "name": "caption",
-      "label": "音乐要求",
+      "label": "Caption",
       "widget_type": "text_area",
       "required": true,
       "placeholder": "描述音乐的风格、人声特征与编曲安排。建议按结构化格式：\n\nGlobal Metadata:\nGenre: 风格流派\nTempo: 速度 BPM\nMood: 情绪氛围\nProduction: 制作风格\n\nVocal Details:\nVocal gender: 人声性别\nTimbre: 音色特征\nRegister: 音域\nPerformance: 演唱方式\nHarmony: 和声安排\n\nArrangement:\nIntro: ...\nVerse: ...\nChorus: ...\nBridge: ...\nOutro: ..."
     },
     {
       "name": "lyrics",
-      "label": "歌词",
+      "label": "Lyrics",
       "widget_type": "text_area",
       "required": true,
       "placeholder": "使用结构标签编写歌词：\n\n[Intro]\n\n[Verse 1]\n第一段歌词...\n\n[Pre-Chorus]\n预副歌歌词...\n\n[Chorus]\n副歌歌词...\n\n[Bridge]\n桥段歌词...\n\n[Outro]\n尾奏歌词...\n\n纯音乐请填 [Instrumental]"

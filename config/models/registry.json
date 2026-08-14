@@ -1,5 +1,5 @@
 {
-  "version": "12",
+  "version": "13",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -66,7 +66,7 @@
     "workflow/mini_max_h3_triple_ref_i2_v.json": "8ee6be4fcccd58eaeb5bc22b24dda596",
     "workflow/mini_max_h3_video_image_ref_v2_v.json": "98108a7d3fa6622b453a624909ad1577",
     "workflow/mini_max_h3_video_ref_v2_v.json": "052995e765f32935aa78942cb461b749",
-    "workflow/minimax_music3.json": "552699d6a08a433578bc6df79cd121d3",
+    "workflow/minimax_music3.json": "b8154d12f648f0ec3287cd6e2d84465f",
     "workflow/qwen2511_double_sampling.json": "740d4230bf3646e0826370c34020da63",
     "workflow/qwen2511_double_sampling2.json": "d9ebe5322c0f85e3a122e16cb596da43",
     "workflow/qwen2511_perspective_switch.json": "69e1fd0e7d6be49b401ade1e1949b2f7",
