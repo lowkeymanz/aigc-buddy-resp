@@ -1,5 +1,5 @@
 {
-  "version": "14",
+  "version": "15",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -41,6 +41,8 @@
     "workflow/hunyuan15_t2_v720_p.json": "bd0c4e85237e41f2243f5a232f594ff9",
     "workflow/hunyuan_foley.json": "dc79a393c9efbc4747fb730e65d8d59f",
     "workflow/ideogram4.json": "981f85d576efda2f36d248903ee7823a",
+    "workflow/index_tts25_audio_clone.json": "2c0eaac4bcbc1e6bcc6020370bde0eac",
+    "workflow/index_tts25_emotion_text_audio_clone.json": "a7f3c3096b33a8e29a934c76608b9b99",
     "workflow/index_tts2_audio_clone.json": "2507d5940a93d350ded04e369fea6ed1",
     "workflow/krea2_turbo.json": "145e9baef3c63fa67b4da1935eb93141",
     "workflow/krea2_turbo_ig.json": "0dec839328e75d263edea68bc251b444",
@@ -243,6 +245,8 @@
     "rh_wf/hunyuan1.5_i2v_720p.png": "9dbe07e5251f5472a75da4fcce1b5a17",
     "rh_wf/hunyuan_foley.png": "a0944c119184331b766e0e1b1df7dfbe",
     "rh_wf/ideogram4_text_image.png": "bc467a3c49a24addb22dd20cdbd5c681",
+    "rh_wf/indextts25_audio_clone.png": "ca2c844148b3f7a7c829930408a5871e",
+    "rh_wf/indextts25_emotion_text_audio_clone.png": "83c3aa0b5ccfa25946f0d33c4ba8a8ea",
     "rh_wf/indextts2_audio_clone.png": "ba6d5586e6b64f9b002d1b25da08a1be",
     "rh_wf/krea2_turbo_ig.png": "1228e9de30b8319b1cd5096a06a00f15",
     "rh_wf/krea2_turbo_kl.png": "90f53e316f0775fd23af156e4e238ad3",

@@ -1,0 +1,52 @@
+{
+  "type": "workflow",
+  "class_name": "IndexTTS25EmotionTextAudioClone",
+  "name": "IndexTTS 2.5 语音克隆（情感文本）",
+  "description": "IndexTTS 2.5 语音克隆模型（情感文本版）。基于参考音频复刻说话人音色，并通过自然语言描述控制语音情感表达，如「有些难过，但不要哭出来」等细腻的情感指令。相比 IndexTTS2 的5种预设情感，情感文本方式更灵活，可表达更细腻复杂的情感。适合有声读物、角色配音等需要精细情感控制的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/indextts25_emotion_text_audio_clone.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2088943120275824642",
+    "overseas": "2088982697825026050"
+  },
+  "input_mapping": {
+    "ref_audio": {
+      "node_id": "2",
+      "field": "audio"
+    },
+    "emotion_text": {
+      "node_id": "6",
+      "field": "prompt"
+    },
+    "text": {
+      "node_id": "7",
+      "field": "prompt"
+    }
+  },
+  "category": "audio_clone",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本..."
+    },
+    {
+      "name": "ref_audio",
+      "label": "参考音频",
+      "widget_type": "audio_upload",
+      "required": true
+    },
+    {
+      "name": "emotion_text",
+      "label": "情感描述",
+      "widget_type": "text_area",
+      "required": false,
+      "placeholder": "用自然语言描述期望的情感表达，如：有些难过，但不要哭出来...",
+      "default": ""
+    }
+  ]
+}
