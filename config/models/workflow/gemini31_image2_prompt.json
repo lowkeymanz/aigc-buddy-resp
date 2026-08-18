@@ -1,0 +1,30 @@
+{
+  "type": "workflow",
+  "class_name": "Gemini31Image2Prompt",
+  "name": "Gemini3.1 图像反推提示词",
+  "description": "Gemini3.1 Flash Lite 图片内容分析模型。输入一张图片，自动反推图片中核心活体的物理状态及具备动态潜能的可动元素描述。输出流畅自然语言描述，聚焦动作主体姿态与可动元素的物理势能，忽略静态视觉标签。适合需要从现有图片提取动态语义信息后再进行视频生成/编辑的场景。",
+  "ui_group": "在线工具",
+  "cover_image": "assets/workflow_covers/rh_wf/gemini31-image2prompt.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2089580051183529986",
+    "overseas": "2089567586808184833"
+  },
+  "input_mapping": {
+    "ref_1": {
+      "node_id": "2",
+      "field": "image"
+    }
+  },
+  "category": "vision_analysis",
+  "ui_schema": [
+    {
+      "name": "ref_1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "placeholder": "上传需要反推提示词的图片"
+    }
+  ]
+}

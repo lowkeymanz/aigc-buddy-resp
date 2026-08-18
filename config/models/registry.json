@@ -1,5 +1,5 @@
 {
-  "version": "15",
+  "version": "16",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -37,6 +37,7 @@
     "workflow/flash_vsr_video_upscale.json": "d490f694252eec37d81550bd6dc8c05b",
     "workflow/flux2_klein.json": "b6a914b8044143313825d521deedf967",
     "workflow/flux2_klein_edit.json": "f27cfe06c995a4805ab19bd130aa48d6",
+    "workflow/gemini31_image2_prompt.json": "342a4d3e34f147513bc2a78a4387116d",
     "workflow/hunyuan15_i2_v720_p.json": "3264fac786941bec14a63579d847047c",
     "workflow/hunyuan15_t2_v720_p.json": "bd0c4e85237e41f2243f5a232f594ff9",
     "workflow/hunyuan_foley.json": "dc79a393c9efbc4747fb730e65d8d59f",
@@ -242,6 +243,7 @@
     "rh_wf/flash_vsr_seedvr2_ttp_image_hd_restore.png": "e431e4c839bdf6233e8fcb9d5fba18a1",
     "rh_wf/flux2_klein_9b_edit.png": "ec05e354b7f6ea41ea4d2148081b1d88",
     "rh_wf/flux2_klein_9b_t2i.png": "c87e61c212a71d9261b00b1b7882cda1",
+    "rh_wf/gemini31-image2prompt.jpg": "8426684a313cc67651ddb8fb806f7d74",
     "rh_wf/hunyuan1.5_i2v_720p.png": "9dbe07e5251f5472a75da4fcce1b5a17",
     "rh_wf/hunyuan_foley.png": "a0944c119184331b766e0e1b1df7dfbe",
     "rh_wf/ideogram4_text_image.png": "bc467a3c49a24addb22dd20cdbd5c681",
