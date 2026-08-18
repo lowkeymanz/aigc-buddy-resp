@@ -1,5 +1,5 @@
 {
-  "version": "16",
+  "version": "17",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -236,6 +236,7 @@
     "rh_wf/anima_base1.png": "403f3aa090562026636d52a00c897816",
     "rh_wf/anima_base1_light.png": "d6ef452fa440980a5fc2e6bd0e2ff615",
     "rh_wf/audio_to_text.png": "c224cff7bcb367c4c2cc2ff5a89ca882",
+    "rh_wf/auto_design_sheet.jpg": "5cf8a881635c919344917cef4cb08b2f",
     "rh_wf/chinese_3d_anime.png": "7a0fffe35cdffd9e3effd2385f52fb06",
     "rh_wf/chinese_rural_animation.png": "4457cdd3a32d68afe6a9afa3b6923a96",
     "rh_wf/firered_image_edit_11.png": "6aca7f5c8c913aeae585879ef38c61c0",
