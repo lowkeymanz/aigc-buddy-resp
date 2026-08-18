@@ -1,0 +1,70 @@
+{
+  "type": "workflow",
+  "class_name": "AutoDesignSheet",
+  "name": "自动多视图设计表",
+  "description": "自动多视图设计表模型。输入一张参考图和主体描述，自动生成该主体的多视图设计表（角色六视图/道具正交图/场景参考图等）。工作流内置 Gemini3.1 视觉分析，自动识别主体并生成规范化的设计表提示词，再通过 QwenImageEdit2511 生成设计表图片。适合角色设定、道具设计、场景参考等需要多角度展示的场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/auto_design_sheet.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2089630532681428993",
+    "overseas": "2089623701436710914"
+  },
+  "input_mapping": {
+    "ref_1": {
+      "node_id": "141",
+      "field": "image"
+    },
+    "subject": {
+      "node_id": "149",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "144",
+      "field": "value"
+    },
+    "height": {
+      "node_id": "145",
+      "field": "value"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "ref_1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "placeholder": "上传需要生成设计表的参考图"
+    },
+    {
+      "name": "subject",
+      "label": "主体",
+      "widget_type": "text_input",
+      "required": true,
+      "placeholder": "指定设计表主体，如：人、场景、道具、动物等",
+      "description": "原图中可能存在人/场景/道具等多种元素，指定主体只做单一主体的设计表"
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 2048,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 64,
+      "max_value": 8192,
+      "step": 1
+    }
+  ]
+}
