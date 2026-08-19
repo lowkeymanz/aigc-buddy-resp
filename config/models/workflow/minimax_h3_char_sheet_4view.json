@@ -3,7 +3,7 @@
   "class_name": "MiniMaxH3CharSheet4View",
   "name": "MiniMax-H3 角色四视图",
   "description": "MiniMax-H3 角色四视图自动生成模型。输入一张参考图和主体描述，自动生成该主体的四视图角色设计表（正面、左侧、右侧、正面特写）。工作流内置 Gemini3.1 视觉分析，自动识别主体并生成规范化的A-Prompt提示词，再通过 MiniMax-H3 Reference-to-Video 生成环绕视频并提取关键帧拼接为四视图。适合角色设定、道具展示等需要多角度展示的场景。",
-  "ui_group": "视频创作",
+  "ui_group": "图片创作",
   "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_char_sheet_4view.jpg",
   "source_type": "runninghub",
   "instance_type": "standard",
@@ -21,7 +21,7 @@
       "field": "text"
     }
   },
-  "category": "i2v",
+  "category": "i2i",
   "ui_schema": [
     {
       "name": "ref_1",
