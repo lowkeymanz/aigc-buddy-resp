@@ -1,0 +1,30 @@
+{
+  "type": "workflow",
+  "class_name": "Klein9bCharSheet3View",
+  "name": "Klein9b 角色三视图",
+  "description": "基于 Flux2 Klein 9b + CharacterSheet-TripleView LoRA 的角色三视图自动生成模型。上传一张参考图，自动生成人物三视图（正面、侧面、背面全身视图）。仅支持人物角色。工作流使用 Klein 9b 模型配合专用三视图 LoRA，通过参考图条件采样生成规范化的角色三视图设计表。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/klein9b_char_sheet_3view.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2090364063200137218",
+    "overseas": "2090372740753690626"
+  },
+  "input_mapping": {
+    "ref_1": {
+      "node_id": "2220",
+      "field": "image"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "ref_1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "placeholder": "上传人物角色参考图，自动生成正面、侧面、背面三视图"
+    }
+  ]
+}

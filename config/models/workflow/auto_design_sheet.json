@@ -1,7 +1,7 @@
 {
   "type": "workflow",
   "class_name": "AutoDesignSheet",
-  "name": "自动多视图设计表",
+  "name": "Qwen2511自动多视图设计表",
   "description": "自动多视图设计表模型。输入一张参考图和主体描述，自动生成该主体的多视图设计表（角色六视图/道具正交图/场景参考图等）。工作流内置 Gemini3.1 视觉分析，自动识别主体并生成规范化的设计表提示词，再通过 QwenImageEdit2511 生成设计表图片。适合角色设定、道具设计、场景参考等需要多角度展示的场景。",
   "ui_group": "图片创作",
   "cover_image": "assets/workflow_covers/rh_wf/auto_design_sheet.jpg",

@@ -1,0 +1,30 @@
+{
+  "type": "workflow",
+  "class_name": "Krea2DynamicCharSheet",
+  "name": "Krea2 全能动态角色设计表",
+  "description": "基于 Krea2 Turbo + DynamicCharacterSheet LoRA 的全能动态角色设计表自动生成模型。上传一张参考图，自动生成包含多角度转身视图、动作姿势、剪影研究、表情/状态研究、细节特写等完整区域的全能动态角色设计表。工作流内置 LLM 自动分析参考图并生成规范化设计表提示词，再通过 Krea2Edit 条件采样生成设计表图片。仅支持人物角色。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/krea2_dynamic_char_sheet.jpg",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2090405298501677057",
+    "overseas": "2090411017972064258"
+  },
+  "input_mapping": {
+    "ref_1": {
+      "node_id": "72",
+      "field": "image"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "ref_1",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "placeholder": "上传人物角色参考图，自动生成全能动态角色设计表"
+    }
+  ]
+}
