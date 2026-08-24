@@ -1,6 +1,6 @@
 {
-  "version": "28",
-  "app_version": "1.0.0",
+  "version": "29",
+  "app_version": "1.0.1",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
