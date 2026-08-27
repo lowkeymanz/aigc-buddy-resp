@@ -1,6 +1,6 @@
 {
-  "version": "32",
-  "app_version": "1.0.4",
+  "version": "33",
+  "app_version": "1.0.5",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -80,7 +80,7 @@
     "workflow/mini_max_h3_video_ref_v2_v.json": "052995e765f32935aa78942cb461b749",
     "workflow/minimax_h3_char_sheet_4view.json": "5e58d8d3dc2ba3bc2ad79f3a53d05983",
     "workflow/minimax_h3_char_sheet_6view.json": "cad8f494a7e60a0887305a4c6a559ee6",
-    "workflow/minimax_music3.json": "5233c8f1969eab57f004066018e7e889",
+    "workflow/minimax_music3.json": "2947df76f809d1633fb6f30b02ec6a83",
     "workflow/qwen2511_double_sampling.json": "740d4230bf3646e0826370c34020da63",
     "workflow/qwen2511_double_sampling2.json": "d9ebe5322c0f85e3a122e16cb596da43",
     "workflow/qwen2511_perspective_switch.json": "69e1fd0e7d6be49b401ade1e1949b2f7",
