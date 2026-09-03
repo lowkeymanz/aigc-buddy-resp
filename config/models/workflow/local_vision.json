@@ -1,0 +1,30 @@
+{
+  "type": "workflow",
+  "class_name": "LocalVisionQwen3VL",
+  "name": "本地图像分析 (Qwen3-VL 4B)",
+  "description": "本地视觉分析模型（Qwen3-VL-4B）。输入一张图片，反推结构化中文描述（主体/服装/动作表情/场景/风格五字段），供规划助手理解图片内容。模型运行于本机 GPU，无需云端调用；若本机模型未下载或推理失败，自动回退云端视觉分析。",
+  "ui_group": "在线工具",
+  "cover_image": "",
+  "source_type": "local",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "",
+    "overseas": ""
+  },
+  "input_mapping": {
+    "ref_1": {
+      "node_id": "2",
+      "field": "image"
+    }
+  },
+  "category": "vision_analysis",
+  "ui_schema": [
+    {
+      "name": "ref_1",
+      "label": "待分析图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "placeholder": "上传需要分析的图片"
+    }
+  ]
+}
