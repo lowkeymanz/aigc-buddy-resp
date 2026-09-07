@@ -1,0 +1,40 @@
+{
+  "type": "workflow",
+  "class_name": "BreezeTTS2VoiceClone",
+  "name": "Breeze TTS 2 音色克隆",
+  "description": "Breeze TTS 2 音色克隆模型（Voice Clone）。基于参考音频复刻说话人音色，将输入文本合成为该音色的语音。Breeze TTS 2 是 3B 参数双语（中/英）TTS 模型，音色克隆模式可高度还原说话人的音色、节奏、情绪和说话风格。支持内嵌语气事件标记（中文：[笑][咳嗽][清嗓子][叹气]；英文：(laugh)(cough)(clears throat)(sigh)）。输出 24kHz 单声道音频。适合有声读物、配音制作、语音提示等需要克隆特定人声的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/breeze_tts2_voice_clone.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2095861149500788738",
+    "overseas": "2095883030582140929"
+  },
+  "input_mapping": {
+    "ref_audio": {
+      "node_id": "6",
+      "field": "audio"
+    },
+    "text": {
+      "node_id": "15",
+      "field": "text"
+    }
+  },
+  "category": "audio_clone",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本，支持语气事件标记如 [笑] [叹气]..."
+    },
+    {
+      "name": "ref_audio",
+      "label": "参考音频",
+      "widget_type": "audio_upload",
+      "required": true
+    }
+  ]
+}

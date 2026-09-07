@@ -1,6 +1,6 @@
 {
-  "version": "35",
-  "app_version": "1.0.6",
+  "version": "36",
+  "app_version": "1.0.7",
   "files": {
     "paid/mini_max_h3_image_to_video.json": "06887f2eebe743c817b5acc717605ee2",
     "paid/mini_max_h3_multimodal_video.json": "fdfa7366558e48af7637eef8cdf99f4a",
@@ -31,6 +31,9 @@
     "workflow/ani_wan21_avatar.json": "5ec69c5a5cfefc9e5cfdfb3cb7ca68c7",
     "workflow/anima_base1.json": "a1a9f4fe12fb2426d956a5a942aa7dda",
     "workflow/auto_design_sheet.json": "7614a776b5d9c2e9cb15e8c7fb9cef90",
+    "workflow/breeze_tts2_voice_clone.json": "2558ea306bfe5dacd7220a7fea2d69a8",
+    "workflow/breeze_tts2_voice_design.json": "fc9ff13cebc4ac9f164b7122b64be360",
+    "workflow/breeze_tts2_voice_direction.json": "aa198dd52293f7deaa9ffeec60f2dccd",
     "workflow/chinese3_d_anime.json": "2c13e67d7bbbc28219fa2409d840835e",
     "workflow/fifevf_ix_flash_vsr_upscale.json": "e753b2ff11e07343f2132b52f9e6f9ec",
     "workflow/fire_red_image_edit11.json": "294d9eb701d0a0dd628163b24ce0ce2e",
@@ -244,6 +247,9 @@
     "rh_wf/anima_base1_light.png": "d6ef452fa440980a5fc2e6bd0e2ff615",
     "rh_wf/audio_to_text.png": "c224cff7bcb367c4c2cc2ff5a89ca882",
     "rh_wf/auto_design_sheet.jpg": "5cf8a881635c919344917cef4cb08b2f",
+    "rh_wf/breeze_tts2_voice_clone.png": "300f1808d066b7361a800f88ae2e9dc8",
+    "rh_wf/breeze_tts2_voice_design.png": "5f162885bd4463177810e175aaf9cbe8",
+    "rh_wf/breeze_tts2_voice_direction.png": "51725c2e983066daf8e87bce6c22b89c",
     "rh_wf/chinese_3d_anime.png": "7a0fffe35cdffd9e3effd2385f52fb06",
     "rh_wf/chinese_rural_animation.png": "4457cdd3a32d68afe6a9afa3b6923a96",
     "rh_wf/firered_image_edit_11.png": "6aca7f5c8c913aeae585879ef38c61c0",

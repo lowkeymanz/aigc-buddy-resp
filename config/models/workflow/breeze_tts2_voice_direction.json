@@ -1,0 +1,52 @@
+{
+  "type": "workflow",
+  "class_name": "BreezeTTS2VoiceDirection",
+  "name": "Breeze TTS 2 音色克隆（控制指令）",
+  "description": "Breeze TTS 2 控制指令模型（Voice Direction）。在克隆参考说话人音色身份的基础上，叠加自然语言指令来精确控制语气、情感、语速和表达方式。同一个说话人的声音可通过不同指令呈现不同情绪，无需为每种情绪准备不同参考音频。支持内嵌语气事件标记（中文：[笑][咳嗽][清嗓子][叹气]；英文：(laugh)(cough)(clears throat)(sigh)）。输出 24kHz 单声道音频。适合角色配音、有声读物等需要精细情感控制的场景。",
+  "ui_group": "音频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/breeze_tts2_voice_direction.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2095868835978113025",
+    "overseas": "2095884728762433538"
+  },
+  "input_mapping": {
+    "text": {
+      "node_id": "11",
+      "field": "text"
+    },
+    "instruction": {
+      "node_id": "12",
+      "field": "text"
+    },
+    "ref_audio": {
+      "node_id": "3",
+      "field": "audio"
+    }
+  },
+  "category": "audio_clone",
+  "ui_schema": [
+    {
+      "name": "text",
+      "label": "要合成的文本",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入要合成的文本，支持语气事件标记如 [笑] [叹气]..."
+    },
+    {
+      "name": "ref_audio",
+      "label": "参考音频",
+      "widget_type": "audio_upload",
+      "required": true
+    },
+    {
+      "name": "instruction",
+      "label": "控制指令",
+      "widget_type": "text_area",
+      "required": false,
+      "placeholder": "用自然语言描述期望的情感表达和语气风格，如：压低声音、缓慢而克制地说话...",
+      "default": ""
+    }
+  ]
+}
