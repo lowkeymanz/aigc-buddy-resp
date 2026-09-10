@@ -1,0 +1,41 @@
+{
+  "type": "workflow",
+  "class_name": "LladaImageBaseEdit",
+  "name": "LLaDA-Image 图像编辑基础版",
+  "description": "LLaDA-Image 图像编辑基于与文生图相同的 6B 全扩散权重，上传一张原图后用自然语言下达修改指令，模型会精准改动指令涉及的区域，其余元素保持完全不变。注意：本工作流为原图编辑，输出尺寸与原图一致，不支持改变画面尺寸。适合局部替换物体、更换背景、修改材质颜色、去除杂物等需要保留原图主体的精细编辑任务。\n\n【提示词写法】先声明需要保持原样的内容，再描述要修改的部分。示例：基于原始图片，将前景深色抛光橡木书桌上原本冒热气的陶瓷马克杯替换为同样冒热气的深蓝色釉面陶土马克杯。其他所有元素（打开的手记、指南针、光照、背景书架）必须保持原样。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/llada_image_base_edit.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2097590607677050882",
+    "overseas": "2097594860466454530"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "12",
+      "field": "prompt"
+    },
+    "ref_image": {
+      "node_id": "1",
+      "field": "image"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "ref_image",
+      "label": "原图",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "需要编辑的原始图片，输出尺寸与原图一致"
+    },
+    {
+      "name": "positive",
+      "label": "编辑指令",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "先声明保持原样的内容，再描述修改内容。例如：将画面中的陶瓷马克杯替换为深蓝色釉面陶土马克杯，其他所有元素必须保持原样。"
+    }
+  ]
+}

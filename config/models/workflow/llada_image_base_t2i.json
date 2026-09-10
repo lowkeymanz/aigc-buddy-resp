@@ -1,0 +1,60 @@
+{
+  "type": "workflow",
+  "class_name": "LladaImageBaseT2I",
+  "name": "LLaDA-Image 基础版文生图",
+  "description": "LLaDA-Image 是蚂蚁集团 inclusionAI 开源的 6B 参数统一图像生成与编辑模型，采用「先学画、再学听话」的全扩散架构（LLaDA2.0-mini 理解侧 + 6B DiT 生成侧）。基础版（Base）画质与细节表现最好，擅长照片级真实感画面，原生支持中英文文字渲染，在 Qwen-Image-Bench 中英双榜开源第一。支持自定义宽高（默认 1024×1024，宽高需为 16 的倍数），中英文提示词均可直接输入。适合海报排版、电商主图、摄影级写实画面、概念设计等场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/llada_image_base_t2i.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2097584756920770561",
+    "overseas": "2097590389205585922"
+  },
+  "input_mapping": {
+    "positive": {
+      "node_id": "16",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "14",
+      "field": "Value"
+    },
+    "height": {
+      "node_id": "15",
+      "field": "Value"
+    }
+  },
+  "category": "t2i",
+  "ui_schema": [
+    {
+      "name": "positive",
+      "label": "提示词",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "请输入描述词，中英文均可..."
+    },
+    {
+      "name": "width",
+      "label": "宽度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 512,
+      "max_value": 2048,
+      "step": 16,
+      "description": "需为 16 的倍数，默认 1024"
+    },
+    {
+      "name": "height",
+      "label": "高度 (px)",
+      "widget_type": "number",
+      "required": false,
+      "default": 1024,
+      "min_value": 512,
+      "max_value": 2048,
+      "step": 16,
+      "description": "需为 16 的倍数，默认 1024"
+    }
+  ]
+}

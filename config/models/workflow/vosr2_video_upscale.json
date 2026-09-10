@@ -1,0 +1,52 @@
+{
+  "type": "workflow",
+  "class_name": "VOSR2VideoUpscale",
+  "name": "VOSR 2.0 视频高清放大",
+  "description": "VOSR 2.0 视频高清放大将视频逐帧送入 1.4B 一步式超分模型（LightningDiT + Qwen-Image 2D VAE + DINOv2-L），再按原视频帧率重新合成为视频并保留原音轨。单步推理使长视频放大也能保持较快速度，纹理还原自然。支持 2x/4x/8x 放大，超过 4 倍后细节质量不再保证，建议优先使用 2x~4x。适合低清素材、AI 生成视频和老视频的画质提升。输入为视频文件，选择放大倍数即可。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/vosr2_video_upscale.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2097685495408058369",
+    "overseas": "2097689990617059329"
+  },
+  "input_mapping": {
+    "ref_video": {
+      "node_id": "5",
+      "field": "file"
+    },
+    "upscale_by": {
+      "node_id": "11",
+      "field": "Value"
+    }
+  },
+  "category": "v_upscale",
+  "ui_schema": [
+    {
+      "name": "ref_video",
+      "label": "参考视频",
+      "widget_type": "video_upload",
+      "required": true,
+      "description": "需要高清放大的原始视频，输出保留原音轨"
+    },
+    {
+      "name": "upscale_by",
+      "label": "放大倍数",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 2,
+      "options": [
+        "2x",
+        "4x",
+        "8x"
+      ],
+      "option_values": [
+        2,
+        4,
+        8
+      ],
+      "description": "超过 4 倍后细节质量不再保证，建议优先 2x~4x"
+    }
+  ]
+}

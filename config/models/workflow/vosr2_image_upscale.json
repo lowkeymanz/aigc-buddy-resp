@@ -1,0 +1,52 @@
+{
+  "type": "workflow",
+  "class_name": "VOSR2ImageUpscale",
+  "name": "VOSR 2.0 图片高清放大",
+  "description": "VOSR 2.0 是 1.4B 参数的一步式（one-step）图像超分辨率模型，由 LightningDiT + Qwen-Image 2D VAE + DINOv2-L 条件组成，单步推理即可完成放大，速度快、纹理还原自然、色彩过渡干净。支持 2x/4x/8x 放大，模型在最高 16 倍退化上训练，但超过 4 倍后质量不再保证，建议优先使用 2x~4x。适合老照片修复、低清素材增强、AI 生成图放大出图等场景。输入为图片文件，选择放大倍数即可。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/vosr2_image_upscale.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2097688591941070849",
+    "overseas": "2097690992551251969"
+  },
+  "input_mapping": {
+    "ref_image": {
+      "node_id": "4",
+      "field": "image"
+    },
+    "upscale_by": {
+      "node_id": "5",
+      "field": "Value"
+    }
+  },
+  "category": "i_upscale",
+  "ui_schema": [
+    {
+      "name": "ref_image",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "需要高清放大的原始图片"
+    },
+    {
+      "name": "upscale_by",
+      "label": "放大倍数",
+      "widget_type": "combo_box",
+      "required": false,
+      "default": 2,
+      "options": [
+        "2x",
+        "4x",
+        "8x"
+      ],
+      "option_values": [
+        2,
+        4,
+        8
+      ],
+      "description": "超过 4 倍后细节质量不再保证，建议优先 2x~4x"
+    }
+  ]
+}
