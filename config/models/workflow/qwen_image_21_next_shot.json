@@ -1,0 +1,42 @@
+{
+  "type": "workflow",
+  "class_name": "QwenImage21NextShot",
+  "name": "Qwen Image 2.1 导演下一个镜头",
+  "description": "Qwen-Image-2.1 导演下一个镜头：上传当前画面，用一句话描述下一个镜头（如\"拉近镜头，呈现手部特写\"），AI 基于参考缓存与 next-scene LoRA 生成人物、场景保持一致的下一镜画面。适合分镜创作、连续镜头延展、故事板规划等场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen_image_21_next_shot.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2108579867628494850",
+    "overseas": "2108582764940713986"
+  },
+  "input_mapping": {
+    "image": {
+      "node_id": "41",
+      "field": "image"
+    },
+    "positive": {
+      "node_id": "42",
+      "field": "text"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "image",
+      "label": "当前画面",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "当前镜头画面（首帧或上一镜截图），作为下一镜的参考"
+    },
+    {
+      "name": "positive",
+      "label": "下一镜描述",
+      "widget_type": "text_area",
+      "required": true,
+      "placeholder": "描述下一个镜头，如：拉近镜头，呈现手部特写",
+      "description": "用一句话描述镜头运动与画面内容，AI 将在保持人物与场景一致的前提下生成下一镜"
+    }
+  ]
+}

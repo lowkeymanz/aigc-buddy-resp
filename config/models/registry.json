@@ -1,5 +1,5 @@
 {
-  "version": "42",
+  "version": "43",
   "app_version": "1.0.9",
   "files": {
     "graphs/minimax_h3_fl2va.json": "12f478f1fd2c5de2fb75dbeeaad572d4",
@@ -78,6 +78,7 @@
     "workflow/qwen2511_perspective_switch.json": "69e1fd0e7d6be49b401ade1e1949b2f7",
     "workflow/qwen3_asr_text.json": "3742af31a8b4a86812faccf9db344a66",
     "workflow/qwen3_tts_voice_design.json": "ea762bd54a6f73632fbd8fd0952bf4ae",
+    "workflow/qwen_image_21_next_shot.json": "f8697f0543bec9e3bd524b0b80660246",
     "workflow/qwen_image_21_outfit_swap.json": "c12c2a868d15a933f233ad30dc8a1e93",
     "workflow/qwen_image_21_restore.json": "ecae354b0f5bb711f5e822f1aaf5ed12",
     "workflow/qwen_image_21_t2i_native.json": "f2cf150ce03a42bf3e4963bebacfb419",
@@ -289,6 +290,7 @@
     "rh_wf/qwen3-image2prompt.jpg": "3ac053f3509012e0b9ebdd9e2ad011ae",
     "rh_wf/qwen3asr_text.jpg": "4e8a4b4b5c42f2f2a10daba839cd7534",
     "rh_wf/qwen3tts_voice_design.png": "abfed2dad28616907a9894639d2efcd6",
+    "rh_wf/qwen_image_21_next_shot.png": "3772dfe605f47407e143d1f5cf0ecf4e",
     "rh_wf/qwen_image_21_outfit_swap.png": "65ed1ae9016e2f763f592f719483cfb4",
     "rh_wf/qwen_image_21_restore.png": "1f96445e894191d16b9064e986071478",
     "rh_wf/qwen_image_21_t2i.png": "611e96a23e74827d66bb023a5ff491c6",
