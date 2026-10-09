@@ -1,0 +1,127 @@
+{
+  "475": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "481",
+        0
+      ],
+      "positive": [
+        "470",
+        0
+      ],
+      "negative": [
+        "470",
+        1
+      ],
+      "latent_image": [
+        "473",
+        0
+      ],
+      "seed": 0,
+      "steps": 25,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    }
+  },
+  "483": {
+    "class_type": "CR Text",
+    "inputs": {
+      "text": "A young woman in a red raincoat stands under a transparent umbrella at a busy Tokyo intersection on a rainy evening. She is positioned slightly to the left of the frame, looking toward the camera with a calm expression. Behind her, a modern convenience store has a bright illuminated sign that clearly reads \"便利店\", while a large digital billboard across the street displays \"QWEN IMAGE 2.1\" in clean white letters. Several pedestrians walk through the background with umbrellas, and wet asphalt reflects the red, blue, and warm yellow city lights. The scene has a cinematic street-photography composition, with the woman sharply in focus and the background gradually falling into soft bokeh. Cool blue ambient light mixes with warm storefront lighting, creating natural reflections on the wet surfaces. The overall composition feels like a realistic photograph captured on a rainy Tokyo evening, with balanced visual depth and a strong contrast between the subject and the colorful urban background."
+    }
+  },
+  "469": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "471": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "472": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    }
+  },
+  "473": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "13",
+        0
+      ],
+      "height": [
+        "13",
+        1
+      ],
+      "batch_size": 1
+    }
+  },
+  "470": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "471",
+        0
+      ],
+      "prompt": [
+        "483",
+        0
+      ],
+      "negative_prompt": "",
+      "resolution": 1024
+    }
+  },
+  "481": {
+    "class_type": "QwenImage21Cache",
+    "inputs": {
+      "model": [
+        "469",
+        0
+      ],
+      "device": "auto",
+      "dtype": "default"
+    }
+  },
+  "13": {
+    "class_type": "ResolutionSelector",
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 1,
+      "multiple": 8
+    }
+  },
+  "474": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "475",
+        0
+      ],
+      "vae": [
+        "472",
+        0
+      ]
+    }
+  },
+  "485": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "474",
+        0
+      ],
+      "filename_prefix": "ComfyUI"
+    }
+  }
+}

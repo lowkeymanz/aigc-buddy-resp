@@ -1,0 +1,41 @@
+{
+  "type": "workflow",
+  "class_name": "QwenImage21OutfitSwap",
+  "name": "Qwen-Image-2.1 一键换装",
+  "description": "Qwen-Image-2.1 一键换装：上传人物图片与服装图片，AI 自动判断人物构图（全身/半身/有无鞋）并描述服装，随后由 Qwen-Image-2.1（outfit-swap LoRA）完成换装，保持人脸、发型、姿态与背景不变。适合电商换装、穿搭展示、角色服装替换等场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen_image_21_outfit_swap.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2107029482791067649",
+    "overseas": "2107069290147422210"
+  },
+  "input_mapping": {
+    "person_image": {
+      "node_id": "2",
+      "field": "image"
+    },
+    "outfit_image": {
+      "node_id": "118",
+      "field": "image"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "person_image",
+      "label": "人物图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "需要被换装的人物照片，支持半身或全身"
+    },
+    {
+      "name": "outfit_image",
+      "label": "服装图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "目标服装照片，AI 将自动描述并应用到人物"
+    }
+  ]
+}

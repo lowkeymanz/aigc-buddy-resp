@@ -2,10 +2,13 @@
   "type": "paid_api",
   "class_name": "MiniMaxH3TextToVideo",
   "name": "MiniMax-H3/文生视频",
-  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 文生视频，通过文本提示词直接生成高质量动态视频。支持 2K/768P 分辨率输出，可生成 5-15 秒视频，支持 21:9、16:9、4:3、1:1、3:4、9:16 多种宽高比。适合从文字描述快速生成创意短视频、动画、特效等场景。",
+  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 文生视频，通过文本提示词直接生成高质量动态视频。支持 2K/768P 分辨率输出，可生成 5-15 秒视频，支持 21:9、16:9、4:3、1:1、3:4、9:16 多种宽高比。适合从文字描述快速生成创意短视频、动画、特效等场景。\n\n【提示词写法】本模型有专属的结构化提示词规范（画面时间线 + 环境声 + 配乐三个字段），调用前必须先用 get_prompt_spec 获取规范，严格按规范编写，禁止凭通用经验编写。",
   "ui_group": "视频创作",
   "cover_image": "assets/workflow_covers/rh_paid/minimax_h3_text_to_video.png",
   "category": "t2v",
+  "supported_modes": [
+    "T2VA"
+  ],
   "api_endpoint": "/openapi/v2/minimax/hailuo-h3/text-to-video",
   "api_method": "POST",
   "request_mapping": {
@@ -143,7 +146,8 @@
       "label": "提示词",
       "widget_type": "text_area",
       "required": true,
-      "default": ""
+      "default": "",
+      "placeholder": "提示词须按 H3 结构化规范编写（画面时间线 + 环境声 + 配乐三个字段），请先调用 get_prompt_spec 获取规范全文"
     },
     {
       "name": "resolution",

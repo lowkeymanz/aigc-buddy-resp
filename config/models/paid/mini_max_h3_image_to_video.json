@@ -2,10 +2,20 @@
   "type": "paid_api",
   "class_name": "MiniMaxH3ImageToVideo",
   "name": "MiniMax-H3/图生视频(首尾帧)",
-  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 图生视频（首尾帧），支持首帧图生视频和首尾帧图生视频两种模式，将静态图片转化为 5-15 秒的动态影像。支持 2K/768P 分辨率输出。首帧与尾帧至少上传一张，可控制视频的起止画面，实现精准的过渡与运镜效果。",
+  "description": "模型价格\n按秒计费，总价=单价×生成时长\n  2K:   $0.12/秒\n  768P: $0.077/秒\n\nMiniMax-H3 图生视频（关键帧），只传首帧即以该图作为视频起点向前发展，只传尾帧即生成向该画面收敛的过程，首帧与尾帧都传即生成从首帧到尾帧的连续过渡，将静态图片转化为 5-15 秒的动态影像。支持 2K/768P 分辨率输出。首帧与尾帧至少上传一张，可控制视频的起止画面，实现精准的过渡与运镜效果。\n\n【提示词写法】本模型有专属的结构化提示词规范，传入不同的帧组合对应不同的模式与提示词结构。调用前必须先用 get_prompt_spec 判定模式（I2VA / L2VA / FL2VA）并获取规范，严格按规范编写，禁止凭通用经验编写。",
   "ui_group": "视频创作",
   "cover_image": "assets/workflow_covers/rh_paid/minimax_h3_image_to_video.png",
   "category": "i2v",
+  "supported_modes": [
+    "I2VA",
+    "L2VA",
+    "FL2VA"
+  ],
+  "param_constraints": {
+    "at_least_one_of": [
+      ["firstFrameUrl", "lastFrameUrl"]
+    ]
+  },
   "api_endpoint": "/openapi/v2/minimax/hailuo-h3/image-to-video",
   "api_method": "POST",
   "request_mapping": {
@@ -94,7 +104,7 @@
     "firstFrameUrl": {
       "type": "string",
       "title": "firstFrameUrl",
-      "required": true,
+      "required": false,
       "default": ""
     },
     "lastFrameUrl": {
@@ -150,15 +160,17 @@
       "name": "firstFrameUrl",
       "label": "首帧图片",
       "widget_type": "image_upload",
-      "required": true,
-      "default": ""
+      "required": false,
+      "default": "",
+      "description": "与尾帧至少上传一张。只传首帧 = 首帧图生视频；两者都传 = 首尾帧生视频"
     },
     {
       "name": "lastFrameUrl",
       "label": "尾帧图片",
       "widget_type": "image_upload",
       "required": false,
-      "default": ""
+      "default": "",
+      "description": "与首帧至少上传一张。只传尾帧 = 尾帧图生视频；两者都传 = 首尾帧生视频"
     },
     {
       "name": "resolution",

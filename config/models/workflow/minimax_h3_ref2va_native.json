@@ -2,7 +2,7 @@
   "type": "workflow",
   "class_name": "MiniMaxH3Ref2vaNative",
   "name": "MiniMax-H3 素材参考生视频",
-  "description": "MiniMax-H3 素材参考生视频（RunningHub 原生 ComfyUI 工作流），可组合文本、参考图片（最多3张）、参考视频（最多1段）、参考音频（最多1段）等多模态素材生成视频，输出视频自带环境音效。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例，可自定义视频时长（秒）。适合角色/场景/氛围参考创作、音画配合等场景。\n\n【提示词写法】先声明每个素材的角色定位，再描述目标视频内容。示例：<图片1> 是主体外观参考；<图片2> 是环境氛围参考。目标视频：雨夜东京街头，<图片1>中的女人自然行走，镜头从背后跟随，霓虹灯光在湿滑路面上反射。",
+  "description": "MiniMax-H3 素材参考生视频（RunningHub 原生 ComfyUI 工作流），可组合文本、参考图片（最多9张）、参考视频（最多3段）、参考音频（最多3段）等多模态素材生成视频，输出视频自带环境音效。支持 1:1、3:4、4:3、9:16、16:9 五种画面比例，可自定义视频时长（秒）。\n\n素材组合决定生成模式：仅参考图 → 主体/场景/风格参考生成；图 + 音频 → 音色参考与口型同步；含参考视频 → 原片编辑或延续；仅音频 → 音频参考。注意：单张图 + 单段音频属于音色参考模式，不是首帧图生视频；音频最多 3 段，多段可分别对应不同说话音色（如双人对话各一音色）。参考视频的原音轨不自动传入，需参考其声音时须同时提供「视频配套音频」（第 N 段对应第 N 段参考视频）；不属于任何参考视频的音频放「参考音频」。\n\n【提示词写法】本模型有专属的结构化提示词规范（全参考模式六段式），调用前必须先用 get_prompt_spec 判定模式并获取规范，严格按规范编写，禁止凭通用经验编写。",
   "ui_group": "视频创作",
   "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_ref2va_native.png",
   "source_type": "rh_native",
@@ -35,7 +35,7 @@
         "class_type": "LoadImage",
         "field": "image"
       },
-      "max_count": 3
+      "max_count": 9
     },
     "ref_videos": {
       "target_node": "136",
@@ -48,7 +48,7 @@
         "class_type": "GetVideoComponents",
         "input": "video"
       },
-      "max_count": 1
+      "max_count": 3
     },
     "ref_audios": {
       "target_node": "136",
@@ -57,17 +57,37 @@
         "class_type": "LoadAudio",
         "field": "audio"
       },
-      "max_count": 1
+      "max_count": 3
+    },
+    "ref_video_audios": {
+      "target_node": "136",
+      "field_pattern": "ref_video_audios.ref_video_audio_{i}",
+      "loader": {
+        "class_type": "LoadAudio",
+        "field": "audio"
+      },
+      "max_count": 3
     }
   },
   "category": "i2v",
+  "supported_modes": [
+    "REF2VA"
+  ],
+  "param_constraints": {
+    "at_least_one_of": [
+      ["ref_images", "ref_videos", "ref_audios", "ref_video_audios"]
+    ],
+    "count_lte": [
+      ["ref_video_audios", "ref_videos"]
+    ]
+  },
   "ui_schema": [
     {
       "name": "positive",
       "label": "提示词",
       "widget_type": "text_area",
       "required": true,
-      "placeholder": "先声明素材定位（如 <图片1> 是主体外观参考），再描述目标视频内容、运镜与氛围..."
+      "placeholder": "提示词须按 H3 全参考模式六段式规范编写（素材标签定义 → 任务摘要 → 保留关系 → 时间线描述 → 环境声 → 配乐），请先调用 get_prompt_spec 获取规范全文"
     },
     {
       "name": "ref_images",
@@ -75,8 +95,8 @@
       "widget_type": "image_upload",
       "required": false,
       "default": [],
-      "max_count": 3,
-      "description": "最多 3 张，作为主体外观/场景/风格参考"
+      "max_count": 9,
+      "description": "最多 9 张，作为主体外观/场景/风格参考"
     },
     {
       "name": "ref_videos",
@@ -84,8 +104,8 @@
       "widget_type": "video_upload",
       "required": false,
       "default": [],
-      "max_count": 1,
-      "description": "最多 1 段，作为动作或镜头参考"
+      "max_count": 3,
+      "description": "最多 3 段，作为动作或镜头参考；其原音轨不自动传入，需参考时须同时提供「视频配套音频」"
     },
     {
       "name": "ref_audios",
@@ -93,8 +113,17 @@
       "widget_type": "audio_upload",
       "required": false,
       "default": [],
-      "max_count": 1,
-      "description": "最多 1 段，作为声音氛围参考"
+      "max_count": 3,
+      "description": "最多 3 段，作为声音氛围参考或说话音色参考（多段可分别对应不同音色）；不属于任何参考视频的音频才放这里"
+    },
+    {
+      "name": "ref_video_audios",
+      "label": "视频配套音频",
+      "widget_type": "audio_upload",
+      "required": false,
+      "default": [],
+      "max_count": 3,
+      "description": "与参考视频一一配套的音频（如该视频的原声/说话音色），按参考视频顺序排列，第 N 段对应第 N 段参考视频；不属于任何参考视频的音频请放入「参考音频」"
     },
     {
       "name": "ratio",
@@ -122,8 +151,8 @@
       "label": "时长 (秒)",
       "widget_type": "number",
       "required": false,
-      "default": 10,
-      "min_value": 1,
+      "default": 5,
+      "min_value": 5,
       "max_value": 15,
       "step": 1
     }

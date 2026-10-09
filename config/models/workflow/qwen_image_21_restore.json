@@ -1,0 +1,43 @@
+{
+  "type": "workflow",
+  "class_name": "QwenImage21Restore",
+  "name": "Qwen Image 2.1 图片清晰度增强与细节修复",
+  "description": "Qwen-Image-2.1 图片修复：去除模糊、噪点与压缩伪影，恢复锐利自然的细节，保持构图、人物与色彩不变。适合老照片翻新、低画质截图增强、压缩图片修复等场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen_image_21_restore.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2108522729849843713",
+    "overseas": "2108531928206237698"
+  },
+  "input_mapping": {
+    "image": {
+      "node_id": "41",
+      "field": "image"
+    },
+    "positive": {
+      "node_id": "42",
+      "field": "text"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "image",
+      "label": "待修复图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "模糊、有噪点或压缩伪影的图片"
+    },
+    {
+      "name": "positive",
+      "label": "修复提示词",
+      "widget_type": "text_area",
+      "required": false,
+      "default": "Restore the photo: remove blur, noise and compression artifacts and recover sharp, natural detail, keeping the same composition, people and colors.",
+      "placeholder": "默认修复提示词，一般无需修改",
+      "description": "描述修复要求；默认为去模糊、降噪、去压缩伪影并恢复自然细节，保持构图与色彩不变"
+    }
+  ]
+}
