@@ -1,0 +1,54 @@
+{
+  "type": "workflow",
+  "class_name": "QwenImage21TurboCharacterSwap",
+  "name": "Qwen Image 2.1 Turbo 人物角色替换",
+  "description": "Qwen-Image-2.1-Turbo 人物角色替换：上传原图与人物参考图，将原图中的人物替换为参考图中的人物，迁移其五官、发型与身份特征，同时保持原图的姿势、服装、动作、机位、构图、背景与光影不变。适合换人出镜、IP 角色植入、合照换人等场景。",
+  "ui_group": "图片创作",
+  "cover_image": "assets/workflow_covers/rh_wf/qwen_image_21_turbo_character_swap.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2108901380495859713",
+    "overseas": "2108943137838628865"
+  },
+  "input_mapping": {
+    "image": {
+      "node_id": "470",
+      "field": "image"
+    },
+    "character_image": {
+      "node_id": "475",
+      "field": "image"
+    },
+    "positive": {
+      "node_id": "489",
+      "field": "prompt"
+    }
+  },
+  "category": "i2i",
+  "ui_schema": [
+    {
+      "name": "image",
+      "label": "原图",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "被替换人物所在的原始图片，场景、姿势与构图将保持不变"
+    },
+    {
+      "name": "character_image",
+      "label": "替换的人物",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "提供五官、发型与身份特征的人物参考图"
+    },
+    {
+      "name": "positive",
+      "label": "替换指令",
+      "widget_type": "text_area",
+      "required": false,
+      "default": "character_swap: use <image1> as the base image and <image2> as the character identity reference. Replace the person in <image1> with the person from <image2>, transferring their facial features, hairstyle, and identity. Preserve the original pose, body position, clothing, action, camera angle, composition, background, lighting, and environment of <image1>. Make the replacement look natural and seamlessly integrated into the original scene. Do not alter any other elements. High detail, realistic anatomy, sharp focus.",
+      "placeholder": "默认角色替换指令，一般无需修改",
+      "description": "默认将原图（image1）中的人物替换为参考图（image2）中的人物，并保持场景不变；可用 <image1>/<image2> 指代两张图来自定义指令"
+    }
+  ]
+}

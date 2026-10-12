@@ -1,0 +1,74 @@
+{
+  "type": "workflow",
+  "class_name": "MiniMaxH3Orb360",
+  "name": "Minimax-H3 360°环绕与卡片旋转",
+  "description": "MiniMax-H3 参考图生视频（orb360 运镜 LoRA）：上传一张主体图片，默认生成冻结时刻的 360° 顺时针环绕视频（主体与场景完全静止、仅镜头环绕，124 帧 24fps 约 5 秒，含音频）。更换提示词模板可实现卡片旋转等其它运镜效果。",
+  "ui_group": "视频创作",
+  "cover_image": "assets/workflow_covers/rh_wf/minimax_h3_orb360.png",
+  "source_type": "runninghub",
+  "instance_type": "standard",
+  "source_data": {
+    "domestic": "2109661372345831426",
+    "overseas": "2109674959042797569"
+  },
+  "input_mapping": {
+    "image": {
+      "node_id": "137",
+      "field": "image"
+    },
+    "positive": {
+      "node_id": "150",
+      "field": "text"
+    },
+    "width": {
+      "node_id": "151",
+      "field": "Value"
+    },
+    "height": {
+      "node_id": "152",
+      "field": "Value"
+    }
+  },
+  "category": "i2v",
+  "supported_modes": [
+    "REF2VA"
+  ],
+  "ui_schema": [
+    {
+      "name": "image",
+      "label": "参考图片",
+      "widget_type": "image_upload",
+      "required": true,
+      "description": "作为环绕中心的主体图片，也是视频的起始与结束视角"
+    },
+    {
+      "name": "positive",
+      "label": "运镜提示词",
+      "widget_type": "text_area",
+      "required": false,
+      "default": "subject_definitions:\n<Subject 1> is the exact same rigid subject shown in <Picture 1>. Its geometry, proportions, materials, colors, markings, and surface details remain unchanged.\n<Picture 1> is the first-frame viewpoint of [Shot 1].\n\nsummary:\n[reference generation] ORB360_CW. A frozen-moment 360-degree orbit of <Subject 1> in the real environment shown in <Picture 1>, like a single instant stopped in time.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - its geometry, proportions, materials, colors, markings and surface details are retained, and it stays completely frozen.\n<Picture 1> ([Shot 1] first frame and last frame): fully_preserved - the orbit starts and ends on this view, including its environment, weather and light.\n\ndetailed_description:\n[Shot 1] The shot begins from <Picture 1>, with its exact environment, ground, background, weather and light. The camera performs exactly one smooth clockwise 360-degree orbit around the completely stationary <Subject 1>, at constant radius, constant elevation, constant focal length, constant speed, and constant framing, ending at the starting viewpoint. The subject remains perfectly rigid and stationary. The surrounding real scene stays in place in the world and is revealed consistently as the camera circles, continuing the same location, terrain and sky seen in <Picture 1>. Everything in the scene is frozen in time: falling snow, rain, dust and particles hang motionless in mid-air; fur, hair, feathers, grass, leaves, water and clouds do not move. No articulation, deformation, secondary motion, wind, zoom, dolly, camera roll, cuts, lighting changes, or scene changes.\n\nAll four milestones below belong to the same uninterrupted [Shot 1], not separate shots. The video runs at 24 fps. Angles describe camera motion clockwise as viewed from above, relative to the starting camera azimuth; the subject itself does not rotate. The camera moves continuously at constant angular speed between these milestones, without pausing, reversing or completing extra turns.\nAt 0.000000 seconds (zero-based frame 0), the camera has advanced 0 degrees clockwise from its starting azimuth; the viewpoint corresponds to <Picture 1>.\nAt 1.708333 seconds (zero-based frame 41), the camera has advanced 120 degrees clockwise from its starting azimuth.\nAt 3.416667 seconds (zero-based frame 82), the camera has advanced 240 degrees clockwise from its starting azimuth.\nAt 5.125000 seconds (zero-based frame 123), the camera has advanced 360 degrees clockwise from its starting azimuth; the viewpoint corresponds to <Picture 1>.\n\nThe entire subject is a single frozen three-dimensional scene throughout the shot. Every visible eyelid keeps its reference position: no blinking. Each eye keeps a fixed gaze relative to the head and never tracks the moving camera. Facial expression, mouth, head, hands, feet and body pose remain unchanged. Hair strands, clothing, ribbons, accessories and loose parts are rigidly fixed in the same positions. There is no breathing, sway, settling or secondary motion. Only the camera changes position. Camera radius, elevation, focal length and look-at point stay fixed. Lighting stays fixed in world space; normal viewpoint-dependent shading and reflections remain physically consistent.\n\noverall_soundscape:\nN/A\n\nnon_diegetic_music:\nN/A\n",
+      "placeholder": "默认为 360° 顺时针环绕模板，一般无需修改",
+      "description": "默认 360° 顺时针冻结环绕；需卡片旋转等其它运镜时替换为对应模板（<Picture 1> 指代上传的参考图）"
+    },
+    {
+      "name": "width",
+      "label": "宽",
+      "widget_type": "number",
+      "required": false,
+      "default": 832,
+      "min_value": 256,
+      "max_value": 1280,
+      "step": 16
+    },
+    {
+      "name": "height",
+      "label": "高",
+      "widget_type": "number",
+      "required": false,
+      "default": 480,
+      "min_value": 256,
+      "max_value": 1280,
+      "step": 16
+    }
+  ]
+}

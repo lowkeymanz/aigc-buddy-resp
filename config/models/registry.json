@@ -1,5 +1,5 @@
 {
-  "version": "43",
+  "version": "44",
   "app_version": "1.0.9",
   "files": {
     "graphs/minimax_h3_fl2va.json": "12f478f1fd2c5de2fb75dbeeaad572d4",
@@ -71,6 +71,7 @@
     "workflow/ltx23_t2_v720_p.json": "3abee833e274d28124da309f2ba7bdae",
     "workflow/mini_max_h3_t2_v.json": "59554e674523a6de87be6d0b762965f7",
     "workflow/minimax_h3_fl2va_native.json": "5bce320a2973210289e19be003b17743",
+    "workflow/minimax_h3_orb360.json": "213a9629005bd8cf20c50324dfe7ca05",
     "workflow/minimax_h3_ref2va_native.json": "cec781fd1c20cc3ef03606fc63b07bc9",
     "workflow/minimax_music3.json": "2947df76f809d1633fb6f30b02ec6a83",
     "workflow/qwen2511_double_sampling.json": "740d4230bf3646e0826370c34020da63",
@@ -82,6 +83,7 @@
     "workflow/qwen_image_21_outfit_swap.json": "c12c2a868d15a933f233ad30dc8a1e93",
     "workflow/qwen_image_21_restore.json": "ecae354b0f5bb711f5e822f1aaf5ed12",
     "workflow/qwen_image_21_t2i_native.json": "f2cf150ce03a42bf3e4963bebacfb419",
+    "workflow/qwen_image_21_turbo_character_swap.json": "187a2ca642ee8ba96132cb8806551124",
     "workflow/qwen_image_edit2511.json": "ffbdb8ca64bbaed35dfc1be44390f837",
     "workflow/vosr2_image_upscale.json": "769e5b3db055a9df71632b3f86609321",
     "workflow/vosr2_video_upscale.json": "0f65d3e8b6cf75df12e83bd2533491d0",
@@ -281,6 +283,7 @@
     "rh_wf/ltx2_i2v_720p.png": "086cbd8ac1ba06c41f89bd8ad99b8ab9",
     "rh_wf/ltx2_t2v_720p.png": "7cf358dd1fd1f95ef4d5375870b87bfb",
     "rh_wf/minimax_h3_fl2va_native.png": "e89f3497fbce6e5ba715b5f8c57d987d",
+    "rh_wf/minimax_h3_orb360.png": "ad0d47bb01e9fbfca99fc3b877786369",
     "rh_wf/minimax_h3_ref2va_native.png": "a56a54bf4b70c13fe199686008b45f4b",
     "rh_wf/minimax_h3_t2v.png": "403df6dc69b1f761e29f0aa03a3ebcd9",
     "rh_wf/minimax_music3.jpg": "17424f4e2d074661465b54355389d276",
@@ -294,6 +297,7 @@
     "rh_wf/qwen_image_21_outfit_swap.png": "65ed1ae9016e2f763f592f719483cfb4",
     "rh_wf/qwen_image_21_restore.png": "1f96445e894191d16b9064e986071478",
     "rh_wf/qwen_image_21_t2i.png": "611e96a23e74827d66bb023a5ff491c6",
+    "rh_wf/qwen_image_21_turbo_character_swap.png": "835b18af54f262f952de4315a3bb36df",
     "rh_wf/qwen_image_edit_2511.png": "546fc7723b444e57dae1883de6f8d95f",
     "rh_wf/rtx_video_super_resolution.jpg": "f888f0e9e07e5a0aca4bcc9307172e7a",
     "rh_wf/video_upscale_flashvsr.png": "f4ecff796b9ac0cd0ac1be2313e9d40f",
